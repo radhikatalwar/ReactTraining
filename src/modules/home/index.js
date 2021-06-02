@@ -10,6 +10,7 @@ export class Home extends Component {
       <div>
         <h1>{"Hello From Home"}</h1>
         <h2>{"Hello From Home"}</h2>
+        <h3>{"Hello From Home"}</h3>
       </div>
     );
   }
