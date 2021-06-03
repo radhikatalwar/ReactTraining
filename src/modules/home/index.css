@@ -4,16 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-color: lightgray;
-}
-.homeContainer h3 {
-  color: purple;
-}
-.h1tag {
-  color: blue;
-}
-#h2tag {
-  color: pink;
 }
 .itemContainer{
   width: 200px;
@@ -24,6 +16,7 @@
   align-items: center;
   justify-content: center;
   margin:10px;
+  flex-direction: row;
 }
 .itemContainer h3{
   font-size: 22px;
@@ -34,6 +27,7 @@
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
+  padding: 10px;
 }
 .redClrText{
   color:red !important;

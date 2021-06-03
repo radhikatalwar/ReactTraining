@@ -3,6 +3,7 @@
 //inside component write HTML Code
 
 import React, { Component } from "react";
+import ReusableBox from "../../Components/resuableBox";
 import "./index.css";
 
 class Home extends Component {
@@ -23,6 +24,10 @@ class Home extends Component {
           backgroundColor: "blue",
         })}
         {this.renderBox("Third Container", "Click Me Third")}
+        <ReusableBox
+          heading={"Fourth Container"}
+          buttonTitle={"Click Me Fourth"}
+        />
       </div>
     );
   }
