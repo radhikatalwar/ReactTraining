@@ -1,6 +1,10 @@
 .homeContainer {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
 }
 .homeContainer h3 {
   color: purple;
@@ -10,4 +14,27 @@
 }
 #h2tag {
   color: pink;
+}
+.itemContainer{
+  width: 200px;
+  height: 200px;
+  padding:10px;
+  border:1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:10px;
+}
+.itemContainer h3{
+  font-size: 22px;
+  font-weight: bold;
+}
+.itemContainer button{
+  width: auto;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.redClrText{
+  color:red !important;
 }

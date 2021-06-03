@@ -1,9 +1,9 @@
 import React from "react";
-import Assignment1 from "./modules/Assignment1";
+import Home from "./modules/Home";
 
 class App extends React.Component {
   render() {
-    return <Assignment1 />;
+    return <Home />;
   }
 }
 
