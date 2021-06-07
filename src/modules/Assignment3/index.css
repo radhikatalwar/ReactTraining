@@ -81,7 +81,7 @@ header img {
   margin-bottom: 59px;
 }
 .dogecoinOnlineLeft {
-  width: 41%;
+  width: 38%;
   padding: 44px 0 40px 167px;
 }
 .dogecoinOnlineLeft p,
@@ -89,7 +89,7 @@ h1 {
   padding-bottom: 20px;
 }
 .dogecoinOnlineLeft h1 {
-  font-size: 38px;
+  font-size: 35px;
   font-family: "Rubik", sans-serif;
   font-weight: bold;
 }
@@ -108,12 +108,48 @@ h1 {
 .dogecoinOnlineRight h2 {
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 900;
+}
+.cost1 {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  width: 211px;
+}
+.verticalLine {
+  height: 49px;
+  border: 0.5px solid lightgrey;
+  margin: 10px 0;
+}
+.cost1 p {
+  padding: 10px 13px;
+  font-size: 30px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 200;
+}
+.cost img {
+  height: 25px;
+  width: 25px;
+}
+.cost select {
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 25px;
+  padding: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 200;
+}
+.horLine {
+  background-color: #dbdbdb;
+  border: none;
+  height: 1px;
 }
 .formButton {
   display: flex;
   padding: 20px 0;
   border-radius: 37px;
+  justify-content: center;
 }
 .dogecoinOnlineRight button {
   padding: 0px 49px;
@@ -124,9 +160,19 @@ h1 {
   height: 39px;
   color: var(--light-blue);
   background-color: white;
-  border: 1px solid rgb(189, 189, 189)
+  border: 1px solid rgb(189, 189, 189);
 }
-.cost{
+.dogecoinOnlineRight #buy {
+  border: 0.5px solid var(--light-blue);
+  border-bottom-left-radius:10px;
+  border-top-left-radius:10px;
+}
+.dogecoinOnlineRight #sell {
+  color: black;
+  border-bottom-right-radius:10px;
+  border-top-right-radius:10px;
+}
+.cost {
   display: flex;
   justify-content: space-between;
   text-align: left;
@@ -279,7 +325,6 @@ h1 {
 }
 
 #commonButton {
-  padding: 13px 0;
   border-radius: 50px;
   font-family: "Rubik", sans-serif;
   font-weight: bold;
@@ -288,6 +333,8 @@ h1 {
   border: none;
   cursor: pointer;
   letter-spacing: 1px;
+  margin-top: 20px;
+  height: 47px;
 }
 .whyXcoinsContainer,
 .whyXcoins,
@@ -439,4 +486,75 @@ h1 {
 }
 .dogecoinForMeRight {
   justify-content: center;
+}
+.footer {
+  margin: 0 120px;
+}
+.footer img {
+  width: 100vw;
+}
+.footerTop {
+  display: flex;
+}
+.footerTop p {
+  color: rgb(160 160 160);
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+}
+.footerTopLeft {
+  width: 40%;
+}
+.footerTopRight {
+  width: 60%;
+  justify-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+}
+.logo img {
+  width: 48px;
+  height: 61px;
+}
+.logo {
+  display: flex;
+}
+.logo h2 {
+  margin: 0px 0 5px 0px;
+  font-family: "Saira", sans-serif;
+  font-size: 37px;
+  font-weight: 600;
+}
+.infoContainer {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 200;
+}
+.infoContainer ul {
+  list-style-type: none;
+}
+.infoContainer li {
+  padding: 10px;
+  color: rgb(160 160 160);
+  align-content: center;
+}
+.infoContainer h4 {
+  color: black;
+}
+.footerSections ul {
+  margin: 20px 0;
+}
+.footerSections ul li {
+  display: inline-block;
+}
+.footerSections a {
+  text-decoration: none;
+  color: rgb(160 160 160);
+  font-size: 15px;
+  padding: 10px 20px 10px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.footerBottom p {
+  color: #cecece;
+  font-size: 13px;
+  margin: 26px 0;
 }

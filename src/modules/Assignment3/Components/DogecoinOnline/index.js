@@ -16,26 +16,33 @@ const DogecoinOnline = () => {
       <div className={"dogecoinOnlineRight"}>
         <h2>{"Get your crypto now!"}</h2>
         <div className={"formButton"}>
-          <button>{"BUY"}</button>
-          <button>{"SELL"}</button>
+          <button id={"buy"}>{"BUY"}</button>
+          <button id={"sell"}>{"SELL"}</button>
         </div>
-        {/* <div className={"cost"}>
-          <div>
-            <img src={"./images/assignment3/usaFlag.jpeg"}/>
+        <div className={"cost"}>
+          <div className={"cost1"}>
+            <img src={"./images/assignment3/usaFlag.jpeg"} />
             <p>{"100"}</p>
           </div>
+          <div className={"verticalLine"} />
           <select>
             <option defaultValue>{"USD"}</option>
           </select>
         </div>
+        <hr className={"horLine"} />
         <div className={"cost"}>
-          <div>
-            <img />
+          <div className={"cost1"}>
+            <img src={"./images/assignment3/bitcoin.jpeg"} />
             <p>{"0,00956474"}</p>
           </div>
-          <p>{""}</p>
-        </div> */}
-        <Button title={"BUY BITCOINS"} width={"260px"} color={"#86c306"} />
+          <div className={"verticalLine"} />
+          <select>
+            <option defaultValue>{"BTC"}</option>
+            <option
+            ><img src={"./images/assignment3/bitcoin.jpeg"} /></option>
+          </select>
+        </div>
+        <Button title={"BUY BITCOINS"} width={"235px"} color={"#86c306"} />
       </div>
     </div>
   );

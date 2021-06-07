@@ -8,6 +8,7 @@ import WhatisDogecoin from "./Components/WhatIsDogecoin";
 import WhereToSpend from "./Components/WhereToSpend";
 import WhyXcoins from "./Components/WhyXcoins";
 import "./index.css";
+import Footer from "./Components/Footer";
 
 const Assignment3 = () => {
   return (
@@ -20,20 +21,21 @@ const Assignment3 = () => {
           heading={"How to Buy Dogecoin"}
           color={"#009cde"}
           title={"BUY DOGECOIN"}
-          width={"260px"}
+          width={"235px"}
           buyandsell={"buy"}
         />
         <BuyAndSell
           heading={"How to Sell Dogecoin"}
           color={"#86c306"}
           title={"SELL BITCOIN"}
-          width={"260px"}
+          width={"235px"}
           buyandsell={"sell"}
         />
         <WhyXcoins />
         <WhatisDogecoin />
         <WhereToSpend />
         <DogecoinForMe />
+        <Footer />
       </div>
     </div>
   );
