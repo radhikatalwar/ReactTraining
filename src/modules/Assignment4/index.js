@@ -1,12 +1,12 @@
 import React from "react";
-// import Flex from "./Flex/Flex";
-import Grid from "./Grid/grid";
+import Flex from "./Flex/Flex";
+// import Grid from "./Grid/grid";
 
 const Assignment4 = () => {
   return (
     <div className={"mainContainer"}>
-      {/* <Flex /> */}
-      <Grid />
+      <Flex />
+      {/* <Grid /> */}
     </div>
   );
 };
