@@ -6,21 +6,28 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import {Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import TableBuyComp from "./TableBuyComp";
 
 const styles = makeStyles({
   container: {
+    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
     transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-    width: "95%",
+    width: "93%",
     margin: "0 auto 20px",
     border: "0.5px solid lightgray",
     backgroundColor: "white",
   },
+  table: {
+    padding: "20px",
+  },
   heading: {
-    margin: "0 2.5% 0",
+    margin: "0 3.5% 0",
     fontSize: "25px",
   },
+  label:{
+      textAlign:"center",
+  }
 });
 
 const columns = [
@@ -59,9 +66,9 @@ export default function TableSell() {
         {"Buy Monero online in India"}
       </Typography>
       <TableContainer className={classes.container}>
-        <Table>
+        <Table className={classes.table}>
           <TableHead>
-            <TableRow>
+            <TableRow className={classes.label}>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}

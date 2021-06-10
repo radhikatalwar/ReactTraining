@@ -8,20 +8,15 @@ import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 const styles = makeStyles({
   link: { color: "#1565c0" },
   circle: { color: "#81c182" },
-  //   cell: {
-  //     display: "flex",
-  //     flexDirection: "row",
-  //     justifyContent: "center",
-  //     alignContent: "center",
-  //   },
+    cell: {
+   padding:"8px"
+    },
   price: {
     color: "#388539",
     fontWeight: "600",
   },
   payment: {
     display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
   },
   button: {
     padding: "7px 16px",
@@ -30,9 +25,12 @@ const styles = makeStyles({
     margin: "0 5px",
     color: "white",
     backgroundColor: "#FFBA1F",
+    "&:hover": {
+        backgroundColor: "#fbd582",
+    }
   },
   about: {
-    fontSize: "16px",
+    fontSize: "15px",
   },
 });
 

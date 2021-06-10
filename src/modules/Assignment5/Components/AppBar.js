@@ -8,9 +8,10 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 const styles = makeStyles({
   addbar: {
     backgroundColor: "white",
-    width: "100%",
+    position: "fixed",
+    top: "0",
+    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
   },
-
   toolbar: {
     backgroundColor: "white",
     display: "flex",
@@ -19,11 +20,12 @@ const styles = makeStyles({
   switch: {
     fontSize: "0.8rem",
     color: "black",
+    marginTop:"20px",
   },
   button: {
     padding: "7px 16px",
     fontSize: "13px",
-    fontWeight: "500",
+    fontWeight: "600",
     margin: "0 5px",
   },
   button1: {
@@ -38,7 +40,11 @@ export default function SideDrawer() {
   const classes = styles();
   return (
     <>
-      <AppBar position="static" className={classes.addbar}>
+      <AppBar
+        position="fixed"
+        style={{ width: "calc(100% - 62px)" }}
+        className={classes.addbar}
+      >
         <Toolbar className={classes.toolbar}>
           <div>
             <FormControlLabel

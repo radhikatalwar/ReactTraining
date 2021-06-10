@@ -4,7 +4,10 @@ import AddIcon from "@material-ui/icons/Add";
 import VpnLockIcon from "@material-ui/icons/VpnLock";
 
 const styles = makeStyles({
-  post: { margin: "40px 20px 20px",fontFamily: "'Lato', sans-serif;" },
+  post: {
+    margin: "40px 20px 20px 43px",
+    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
+  },
   flex: { display: "flex" },
   button: { margin: "0 10px", color: "#388539" },
   icon: { color: "#388539" },
@@ -15,7 +18,7 @@ const styles = makeStyles({
     margin: "30px auto 0px",
     width: "70%",
     alignItems: "center",
-    justifyContent:"center",
+    justifyContent: "center",
   },
   margin: {
     margin: "0 5px",

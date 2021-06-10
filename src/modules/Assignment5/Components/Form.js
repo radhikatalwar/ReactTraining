@@ -15,10 +15,15 @@ const styles = makeStyles({
   formmain: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
+    marginTop: "70px",
+    width:"95%",
+    margin:"0 auto",
+    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
   },
   button1: {
     backgroundColor: "#388539",
     margin: "20px",
+    fontWeight: "600",
   },
   form: {
     textAlign: "center",
@@ -28,7 +33,6 @@ const styles = makeStyles({
     backgroundColor: "white",
     color: "#545353",
   },
-  typography: {},
   inputContainer: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
@@ -42,6 +46,7 @@ const styles = makeStyles({
     fontSize: "16px",
     backgroundColor: "#1565c0",
     color: "white",
+    fontWeight: "600",
   },
   search: {
     backgroundColor: "#1565c0",

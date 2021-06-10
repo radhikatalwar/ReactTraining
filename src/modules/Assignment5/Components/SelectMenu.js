@@ -4,7 +4,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  MenuList,
   makeStyles,
 } from "@material-ui/core";
 
@@ -14,18 +13,21 @@ export default function SelectMenu(props) {
   const classes = styles();
   return (
     <>
-      <FormControl
-        variant="outlined"
-        className={classes.formControl}
-        fullWidth={true}
-      >
-        <InputLabel>{props.label}</InputLabel>
-        <Select native label={props.label}>
-          <MenuList>
-            <MenuItem>{"hello"}</MenuItem>
-            <MenuItem>My account</MenuItem>
-            <MenuItem>Logout</MenuItem>
-          </MenuList>
+      <FormControl variant="outlined" className={classes.inrSelect} fullWidth={true}>
+        <InputLabel id="demo-simple-select-outlined-label">
+          {props.label}
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          label={props.label}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
     </>

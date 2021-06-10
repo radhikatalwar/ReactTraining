@@ -13,8 +13,6 @@ const styles = makeStyles({
     backgroundColor: "#1565c0",
     color: "white",
     height: "100%",
-    position:"fixed",
-    zIndex:"1",
   },
 });
 
@@ -23,41 +21,41 @@ export default function SideBar() {
   return (
     <>
       {/* <Drawer className={classes.drawer} anchor={"left"} open={true}> */}
-        <List className={classes.list}>
-          <ListItem button>
-            <SnoozeIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SnoozeIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SnoozeIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SnoozeIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SnoozeIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-          <ListItem button>
-            <SlowMotionVideoIcon fontSize={"large"} />
-          </ListItem>
-        </List>
+      <List className={classes.list}>
+        <ListItem button>
+          <SnoozeIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SnoozeIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SnoozeIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SnoozeIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SnoozeIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+        <ListItem button>
+          <SlowMotionVideoIcon fontSize={"large"} />
+        </ListItem>
+      </List>
       {/* </Drawer> */}
     </>
   );

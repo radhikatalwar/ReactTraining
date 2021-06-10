@@ -13,13 +13,20 @@ import Footer from "./Components/Footer";
 const styles = makeStyles({
   mainContainer: {
     display: "flex",
-    maxWidth: "100vw;",
     backgroundColor: "white",
+    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
   },
   right: {
-    width: "100%",
     backgroundColor: "#f4f6f8",
-    marginLeft: "70px",
+    marginLeft: "62px",
+    width: "100%",
+  },
+  sidebar: {
+    height: "100%",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "62px",
   },
 });
 
@@ -27,7 +34,7 @@ export default function Assignment5() {
   const classes = styles();
   return (
     <div className={classes.mainContainer}>
-      <div>
+      <div className={classes.sidebar}>
         <SideBar />
       </div>
       <div className={classes.right}>
