@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   TableContainer,
@@ -37,22 +37,11 @@ const styles = makeStyles({
 const DisplayTable = (props) => {
   const classes = styles();
   const newdata = props.data;
+  const [filteredData, setFilteredData] = useState({});
 
-
-  // let filteredObjects = newdata.filter(function (obj) {
-  //   //loop through each object
-  //   for (Object.key(obj) in obj) {
-  //     //check if object value contains value you are looking for
-  //     if (obj[key].includes(props.SearchVal)) {
-  //       //add this object to the filtered array
-  //       return obj;
-  //     }
-  //   }
-  // });
-
-  // console.log(filteredObjects);
-
-  // const dataToBeShown = props.search && props.SearchVal !== "" ? newArray : newdata;
+  useEffect(() => {
+    setFilteredData(newdata.filter((elem) => elem.Name === props.SearchVal));
+  }, [props.SearchVal]);
 
   return (
     <TableContainer className={classes.container}>
@@ -71,7 +60,7 @@ const DisplayTable = (props) => {
           {newdata.length > 0 ? (
             newdata.map((element, index) => {
               return (
-                <TableRow hover key={index+1}>
+                <TableRow hover key={index + 1}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>{element.Name}</TableCell>
                   <TableCell>{element.Age}</TableCell>

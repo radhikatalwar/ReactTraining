@@ -86,6 +86,7 @@ const Navbar = () => {
   const [user, setUser] = useState(InitialValues);
   const [newData, setNewData] = useState(data);
   const [open, setOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const [isError, setIsError] = useState(errorInitialValues);
   const [search, SetIsSearch] = useState(false);
   const [SearchVal, setSearchVal] = useState("");
@@ -95,25 +96,27 @@ const Navbar = () => {
   const handleSubmit = (event) => {
     setOpen(false);
     event.preventDefault();
-    setNewData([user, ...newData]);
+
+    isEdit
+      ? setNewData(newData.map((item) => (item.ID === user.ID ? user : item)))
+      : setNewData([user, ...newData]);
+
     setUser(InitialValues);
+    setIsEdit(false);
     console.log(newData);
   };
 
   const userDelete = (ID) => {
     setNewData(newData.filter((ele) => ele.ID !== ID));
   };
-  
-  const editUser = (oldUser, ID) => {
+
+  const editUser = (oldUser) => {
     console.log(user);
     setOpen(true);
     setUser(oldUser);
 
-    const findUser = newData.find((ele) => ele.ID === oldUser.ID);
-    console.log(findUser);
-    var otherUser = newData.filter((ele) => ele.ID !== user.ID);
-    console.log(otherUser);
-    //   setNewData([user, ...otherUser]);
+    console.log(oldUser);
+    setIsEdit(true);
   };
 
   const handleOpen = () => {
@@ -124,6 +127,7 @@ const Navbar = () => {
 
   const inputHandle = (event) => {
     const { name, value } = event.target;
+    console.log(`${name} ${value}`);
     if (value === "") {
       setIsError({ ...isError, [name]: true });
     } else {
