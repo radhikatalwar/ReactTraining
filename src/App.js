@@ -1,9 +1,9 @@
 import React from "react";
-import Assignment7 from "./modules/Assignment7";
+import Assignment8 from "./modules/Assignment8";
 
 class App extends React.Component {
   render() {
-    return <Assignment7 />;
+    return <Assignment8 />;
   }
 }
 

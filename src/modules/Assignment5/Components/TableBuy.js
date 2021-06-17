@@ -14,8 +14,7 @@ const styles = makeStyles({
     fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
     transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
     width: "93%",
-    margin: "0 auto 20px",
-    border: "0.5px solid lightgray",
+    margin: "83px auto 20px",
     backgroundColor: "white",
   },
   table: {
