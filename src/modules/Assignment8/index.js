@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import Navbar from "./Components/Navbar";
-import Table from "./Components/DisplayTable";
 
 const styles = makeStyles({
   mainContainer: {

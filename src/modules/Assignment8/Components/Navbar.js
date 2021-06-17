@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useForm } from "react";
+import { React, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -66,75 +66,76 @@ const styles = makeStyles({
 });
 
 const data = [];
+const InitialValues = {
+  ID: Math.floor(Math.random() * 10000),
+  Name: "",
+  Age: "",
+  Address: "",
+  PhoneNo: "",
+};
+const errorInitialValues = {
+  Name: false,
+  Age: false,
+  Address: false,
+  PhoneNo: false,
+};
 
 const Navbar = () => {
+  // UseState Hooks
   const classes = styles();
+  const [user, setUser] = useState(InitialValues);
+  const [newData, setNewData] = useState(data);
   const [open, setOpen] = useState(false);
+  const [isError, setIsError] = useState(errorInitialValues);
   const [search, SetIsSearch] = useState(false);
   const [SearchVal, setSearchVal] = useState("");
-  const [user, setUser] = useState({
-    ID: Math.floor(Math.random() * 10000),
-    Name: "",
-    Age: "",
-    Address: "",
-    PhoneNo: "",
-  });
 
-  const [newData, setNewData] = useState(data);
-  console.log(...newData);
-
-  const userDelete = (ID) => {
-    setNewData(newData.filter((ele) => ele.ID !== ID));
-  };
-
-  const editUser = (user) => {
-    console.log(user);
-    setOpen(true);
-    setUser(user);
-  };
-
-  const { Name, Age, Address, PhoneNo } = user;
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const inputHandle = (event) => {
-    const { name, value } = event.target;
-    setUser({ ...user, [name]: value });
-  };
-
-  // const SearchValue = (event) => {
-  //   setSearchVal(event.target.value);
-  //   const SearchUser = newData.filter((ele) => ele.Name === SearchVal);
-  //   SetIsSearch(true);
-  // };
+  //Functions
 
   const handleSubmit = (event) => {
     setOpen(false);
     event.preventDefault();
-    console.log(user);
-    console.log(...newData);
-    var findUser = newData.filter((ele) => ele.ID === user.ID);
-    console.log(findUser);
-    if (findUser === []) {
-      setNewData([user, ...newData]);
-    } else {
-      // const keys = Object.keys(findUser[0]);
-      // console.log(keys);
-      // {keys.map = (elem) => {
-
-      // }}
-      console.log(findUser);
-    }
     setNewData([user, ...newData]);
-    setUser({
-      ID: Math.floor(Math.random() * 10000),
-      Name: "",
-      Age: "",
-      Address: "",
-      PhoneNo: "",
-    });
-    console.log(...newData);
+    setUser(InitialValues);
+    console.log(newData);
+  };
+
+  const userDelete = (ID) => {
+    setNewData(newData.filter((ele) => ele.ID !== ID));
+  };
+  
+  const editUser = (oldUser, ID) => {
+    console.log(user);
+    setOpen(true);
+    setUser(oldUser);
+
+    const findUser = newData.find((ele) => ele.ID === oldUser.ID);
+    console.log(findUser);
+    var otherUser = newData.filter((ele) => ele.ID !== user.ID);
+    console.log(otherUser);
+    //   setNewData([user, ...otherUser]);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const { Name, Age, Address, PhoneNo } = user;
+
+  const inputHandle = (event) => {
+    const { name, value } = event.target;
+    if (value === "") {
+      setIsError({ ...isError, [name]: true });
+    } else {
+      setIsError({ ...isError, [name]: false });
+    }
+    setUser({ ...user, [name]: value });
+  };
+
+  const SearchValue = (event) => {
+    SetIsSearch(true);
+    setSearchVal(event.target.value);
+    console.log(SearchVal);
   };
 
   return (
@@ -144,7 +145,7 @@ const Navbar = () => {
           <InputBase
             className={classes.search}
             placeholder="Search…"
-            // onChange={SearchValue}
+            onChange={SearchValue}
           />
           <Button
             variant="contained"
@@ -176,6 +177,8 @@ const Navbar = () => {
                     value={Name}
                     name="Name"
                     onChange={inputHandle}
+                    error={isError.Name}
+                    helperText={isError.Name ? "Required Field" : ""}
                   />
                   <TextField
                     className={classes.input}
@@ -185,6 +188,8 @@ const Navbar = () => {
                     label="Add Age"
                     variant="outlined"
                     value={Age}
+                    error={isError.Age}
+                    helperText={isError.Age ? "Required Field" : ""}
                   />
                   <TextField
                     className={classes.input}
@@ -194,6 +199,8 @@ const Navbar = () => {
                     name="Address"
                     onChange={inputHandle}
                     value={Address}
+                    error={isError.Address}
+                    helperText={isError.Address ? "Required Field" : ""}
                   />
                   <TextField
                     className={classes.input}
@@ -203,6 +210,8 @@ const Navbar = () => {
                     value={PhoneNo}
                     name="PhoneNo"
                     onChange={inputHandle}
+                    error={isError.PhoneNo}
+                    helperText={isError.PhoneNo ? "Required Field" : ""}
                   />
                   <Button
                     variant="contained"
@@ -210,6 +219,15 @@ const Navbar = () => {
                     type="submit"
                   >
                     {"Submit Details"}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className={classes.button}
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                  >
+                    {"Close"}
                   </Button>
                 </form>
               </div>
@@ -221,6 +239,8 @@ const Navbar = () => {
         data={newData}
         userDelete={userDelete}
         editUser={editUser}
+        SearchValue={SearchVal}
+        search={search}
       />
     </>
   );
