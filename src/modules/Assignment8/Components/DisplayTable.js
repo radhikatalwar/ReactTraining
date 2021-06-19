@@ -36,12 +36,18 @@ const styles = makeStyles({
 
 const DisplayTable = (props) => {
   const classes = styles();
-  const newdata = props.data;
-  const [filteredData, setFilteredData] = useState({});
+  var { SearchVal, newdata } = props;
+  const [filteredData, setFilteredData] = useState(newdata);
 
   useEffect(() => {
-    setFilteredData(newdata.filter((elem) => elem.Name === props.SearchVal));
-  }, [props.SearchVal]);
+    setFilteredData(
+      newdata.filter(
+        (elem) =>
+          elem.Name.toLowerCase().indexOf(SearchVal.toLowerCase()) === 0 ||
+          elem.PhoneNo.indexOf(SearchVal) === 0
+      )
+    );
+  }, [SearchVal, newdata]);
 
   return (
     <TableContainer className={classes.container}>
@@ -57,8 +63,8 @@ const DisplayTable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {newdata.length > 0 ? (
-            newdata.map((element, index) => {
+          {filteredData.length > 0 ? (
+            filteredData.map((element, index) => {
               return (
                 <TableRow hover key={index + 1}>
                   <TableCell>{index + 1}</TableCell>

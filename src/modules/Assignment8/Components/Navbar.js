@@ -12,6 +12,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import DisplayTable from "./DisplayTable";
+import uuid from "uuid/dist/v4";
+import validate from "./Validate";
 
 const styles = makeStyles({
   addbar: {
@@ -66,44 +68,52 @@ const styles = makeStyles({
 });
 
 const data = [];
-const InitialValues = {
-  ID: Math.floor(Math.random() * 10000),
+// const InitialValues = ;
+const errorInitialValues = {
   Name: "",
   Age: "",
   Address: "",
   PhoneNo: "",
 };
-const errorInitialValues = {
-  Name: false,
-  Age: false,
-  Address: false,
-  PhoneNo: false,
-};
 
 const Navbar = () => {
   // UseState Hooks
   const classes = styles();
-  const [user, setUser] = useState(InitialValues);
+  const [user, setUser] = useState({
+    ID: uuid(),
+    Name: "",
+    Age: "",
+    Address: "",
+    PhoneNo: "",
+  });
   const [newData, setNewData] = useState(data);
   const [open, setOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isError, setIsError] = useState(errorInitialValues);
-  const [search, SetIsSearch] = useState(false);
   const [SearchVal, setSearchVal] = useState("");
 
-  //Functions
-
   const handleSubmit = (event) => {
-    setOpen(false);
     event.preventDefault();
+    const errors = validate(user);
+    const noErrors = Object.keys(errors).length === 0;
 
-    isEdit
-      ? setNewData(newData.map((item) => (item.ID === user.ID ? user : item)))
-      : setNewData([user, ...newData]);
+    if (noErrors) {
+      setOpen(false);
+      isEdit
+        ? setNewData(newData.map((item) => (item.ID === user.ID ? user : item)))
+        : setNewData([user, ...newData]);
 
-    setUser(InitialValues);
-    setIsEdit(false);
-    console.log(newData);
+      setUser({
+        ID: uuid(),
+        Name: "",
+        Age: "",
+        Address: "",
+        PhoneNo: "",
+      });
+      setIsEdit(false);
+    } else {
+      setIsError(errors);
+    }
   };
 
   const userDelete = (ID) => {
@@ -111,11 +121,8 @@ const Navbar = () => {
   };
 
   const editUser = (oldUser) => {
-    console.log(user);
     setOpen(true);
     setUser(oldUser);
-
-    console.log(oldUser);
     setIsEdit(true);
   };
 
@@ -124,22 +131,13 @@ const Navbar = () => {
   };
 
   const { Name, Age, Address, PhoneNo } = user;
-
   const inputHandle = (event) => {
     const { name, value } = event.target;
-    console.log(`${name} ${value}`);
-    if (value === "") {
-      setIsError({ ...isError, [name]: true });
-    } else {
-      setIsError({ ...isError, [name]: false });
-    }
     setUser({ ...user, [name]: value });
   };
 
   const SearchValue = (event) => {
-    SetIsSearch(true);
     setSearchVal(event.target.value);
-    console.log(SearchVal);
   };
 
   return (
@@ -148,7 +146,7 @@ const Navbar = () => {
         <Toolbar className={classes.toolbar}>
           <InputBase
             className={classes.search}
-            placeholder="Search…"
+            placeholder="Search by Name Or PhoneNo…"
             onChange={SearchValue}
           />
           <Button
@@ -181,8 +179,8 @@ const Navbar = () => {
                     value={Name}
                     name="Name"
                     onChange={inputHandle}
-                    error={isError.Name}
-                    helperText={isError.Name ? "Required Field" : ""}
+                    error={Boolean(isError.Name)}
+                    helperText={isError.Name}
                   />
                   <TextField
                     className={classes.input}
@@ -192,8 +190,8 @@ const Navbar = () => {
                     label="Add Age"
                     variant="outlined"
                     value={Age}
-                    error={isError.Age}
-                    helperText={isError.Age ? "Required Field" : ""}
+                    error={Boolean(isError.Age)}
+                    helperText={isError.Age}
                   />
                   <TextField
                     className={classes.input}
@@ -203,8 +201,8 @@ const Navbar = () => {
                     name="Address"
                     onChange={inputHandle}
                     value={Address}
-                    error={isError.Address}
-                    helperText={isError.Address ? "Required Field" : ""}
+                    error={Boolean(isError.Address)}
+                    helperText={isError.Address}
                   />
                   <TextField
                     className={classes.input}
@@ -214,8 +212,8 @@ const Navbar = () => {
                     value={PhoneNo}
                     name="PhoneNo"
                     onChange={inputHandle}
-                    error={isError.PhoneNo}
-                    helperText={isError.PhoneNo ? "Required Field" : ""}
+                    error={Boolean(isError.PhoneNo)}
+                    helperText={isError.PhoneNo}
                   />
                   <Button
                     variant="contained"
@@ -240,11 +238,10 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
       <DisplayTable
-        data={newData}
+        newdata={newData}
         userDelete={userDelete}
         editUser={editUser}
-        SearchValue={SearchVal}
-        search={search}
+        SearchVal={SearchVal}
       />
     </>
   );
