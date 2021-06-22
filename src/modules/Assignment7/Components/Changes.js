@@ -9,7 +9,6 @@ import {
   NativeSelect,
 } from "@material-ui/core";
 
-const Length = localStorage.getItem("Length");
 const Structure = JSON.parse(localStorage.getItem("Structure"));
 const DataObj = JSON.parse(localStorage.getItem("DataObj") || "[]");
 
@@ -39,14 +38,13 @@ const styles = makeStyles({
 
 const Changes = (props) => {
   const classes = styles();
-  const value = props.selected;
+  const selectedValue = props.selected;
   const [isError, setIsError] = useState(false);
   const [newValue, setNewValue] = useState("");
   const [optionvalue, setOptionValue] = useState("");
 
   const handleOptionSelect = (event) => {
     setOptionValue(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleSelectChange = (event) => {
@@ -57,14 +55,21 @@ const Changes = (props) => {
     if (newValue === "") {
       setIsError(true);
     } else {
-      console.log(`"newvalue" : ${newValue}`);
-      if (value == "Length") {
+      if (selectedValue === "Length") {
         localStorage.setItem("Length", newValue);
+      }
+      if (selectedValue === "Structure") {
+        Structure[`${optionvalue}`] = newValue;
+        localStorage.setItem("Structure", JSON.stringify(Structure));
+      }
+      if (selectedValue === "DataObj") {
+        DataObj[0][`${optionvalue}`] = newValue;
+        localStorage.setItem("DataObj", JSON.stringify(DataObj));
       }
     }
   };
 
-  if (value === "Length") {
+  if (selectedValue === "Length") {
     return (
       <>
         <Typography variant={"h5"}>
@@ -91,15 +96,14 @@ const Changes = (props) => {
         </Button>
       </>
     );
-  } else if (value === "Structure") {
+  } else if (selectedValue === "Structure") {
     var keys = Object.keys(Structure);
-    console.log(keys);
 
     return (
       <>
-        <Typography variant={"p"}>
-          {`${value} : ${localStorage.getItem("Structure")}`}
-        </Typography>
+        <Typography variant={"p"}>{`${selectedValue} : ${JSON.stringify(
+          Structure
+        )}}`}</Typography>
         <FormControl className={classes.formControl}>
           <NativeSelect
             onChange={handleOptionSelect}
@@ -130,14 +134,13 @@ const Changes = (props) => {
         </Button>
       </>
     );
-  } else if (value === "DataObj") {
-    var keys = Object.keys(DataObj[0]);
-    console.log(keys);
+  } else if (selectedValue === "DataObj") {
+    keys = Object.keys(DataObj[0]);
 
     return (
       <>
         <Typography variant={"p"}>
-          {`${value} : ${localStorage.getItem("DataObj")}`}
+          {`${selectedValue} : ${localStorage.getItem("DataObj")}`}
         </Typography>
         <FormControl className={classes.formControl}>
           <NativeSelect

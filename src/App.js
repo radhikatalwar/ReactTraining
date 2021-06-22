@@ -1,10 +1,13 @@
 import React from "react";
-import Assignment8 from "./modules/Assignment8";
+import Assignment9 from "./modules/Assignment9";
+import { BrowserRouter as Router} from "react-router-dom";
 
-class App extends React.Component {
-  render() {
-    return <Assignment8 />;
-  }
-}
+const App = () => {
+  return (
+      <Router>
+        <Assignment9 />
+      </Router>
+  );
+};
 
 export default App;
