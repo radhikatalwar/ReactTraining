@@ -108,7 +108,6 @@ const UserDetails = () => {
 
   useEffect(() => {
     getUser(id).then((res) => {
-      console.log(res);
       setUser(res);
     });
   }, []);
@@ -118,7 +117,6 @@ const UserDetails = () => {
   };
 
   async function editPost(user) {
-    console.log(user);
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

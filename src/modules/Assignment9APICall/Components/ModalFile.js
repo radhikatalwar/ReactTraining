@@ -93,7 +93,6 @@ const ModalFile = (props) => {
         props.updatePost(user);
         setUser(userInitialValue);
       } else {
-        console.log(props.user);
         props.editPost(user);
         props.handleClose();
       }
