@@ -32,7 +32,6 @@ export const fetchdata = () => {
       .get("https://reqres.in/api/unknown")
       .then((res) => {
         const data = res.data;
-        console.log(data);
         dispatch(fetchSuccess(data));
       })
       .catch((error) => {
