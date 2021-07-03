@@ -2,15 +2,27 @@ import { Button, Link, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   navbar: {
     padding: "30px 15px 50px",
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      display: "initial",
+    },
   },
   heading: {
     fontWeight: "bold",
     fontSize: "28px",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  links:{
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      padding:"0 10px",
+    },
   },
   link: {
     padding: "0 15px",
@@ -26,7 +38,7 @@ const styles = makeStyles({
       backgroundColor: "#2a2a2a",
     },
   },
-});
+}));
 
 export const Navbar = () => {
   const classes = styles();
@@ -35,7 +47,7 @@ export const Navbar = () => {
   return (
     <div className={classes.navbar}>
       <Typography className={classes.heading}>{"StartBlogging.co"}</Typography>
-      <div>
+      <div className={classes.links}>
         <Link href="#" className={classes.link} underline={"none"}>
           {"Home"}
         </Link>

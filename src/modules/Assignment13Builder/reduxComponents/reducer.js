@@ -1,4 +1,9 @@
-import { ADD_PRODUCT, CHANGE_COLOR, RESET_PRODUCT } from "../utils/actionNames";
+import {
+  ADD_PRODUCT,
+  CHANGE_COLOR,
+  HANDLE_CHANGE,
+  RESET_PRODUCT,
+} from "../utils/actionNames";
 
 const initialState = {
   products: [],
@@ -21,6 +26,15 @@ export const productReducer = (state = initialState, action) => {
       return {
         ...state,
         color: action.payload,
+      };
+    case HANDLE_CHANGE:
+      return {
+        ...state,
+        products: state.products.map((product, index) =>
+          index !== action.payload.id
+            ? product
+            : { ...product, [action.payload.name]: action.payload.value }
+        ),
       };
     default:
       return state;

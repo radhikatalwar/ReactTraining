@@ -12,12 +12,14 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import Rating from "@material-ui/lab/Rating";
 import { useSelector } from "react-redux";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   card: {
     width: "27%",
     margin: "25px",
     padding: "0px",
-    fontFamily: ['"Roboto"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   heading: {
     fontFamily: "Poppins",
@@ -56,11 +58,8 @@ const styles = makeStyles({
     color: "#177fe4",
     margin: "0 10px",
   },
-  star: {
-    margin: "10px 23%",
-    textAlign: "center",
-  },
-});
+  star: { display: "flex", justifyContent: "center" },
+}));
 
 export default function ProductCard(props) {
   const classes = styles();
@@ -86,7 +85,7 @@ export default function ProductCard(props) {
                 style={{ color: color }}
               />
               {props.title === "" ? "Product title" : props.title}
-              {props.titlePoints === "" ? "" : props.titlePoints}
+              {props.titlePoints === "" ? "" : ` = ${props.titlePoints}`}
             </Typography>
             <Typography className={classes.about}>
               <PlayCircleFilledIcon
@@ -94,7 +93,7 @@ export default function ProductCard(props) {
                 style={{ color: color }}
               />
               {props.tag === "" ? "Product tag" : props.tag}
-              {props.tagPoints === "" ? "" : props.tagPoints}
+              {props.tagPoints === "" ? "" : ` = ${props.tagPoints}`}
             </Typography>
             <Typography className={classes.about}>
               <PlayCircleFilledIcon
@@ -102,7 +101,7 @@ export default function ProductCard(props) {
                 style={{ color: color }}
               />
               {props.link === "" ? "Product link" : props.link}
-              {props.linkPoints === "" ? "" : props.linkPoints}
+              {props.linkPoints === "" ? "" : ` = ${props.linkPoints}`}
             </Typography>
           </CardContent>
         </CardActionArea>

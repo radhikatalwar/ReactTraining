@@ -1,8 +1,9 @@
 import { makeStyles, TextField, Typography } from "@material-ui/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { HandleChange } from "../reduxComponents/action";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   heading: {
     fontFamily: "Poppins",
     fontWeight: "bold",
@@ -11,16 +12,30 @@ const styles = makeStyles({
   },
   input: {
     width: "47%",
-    margin: "2px 10px",
+    margin: "5px 10px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
-});
+}));
 
 export const Product = (props) => {
   const classes = styles();
   const dispatch = useDispatch();
-  const { products, color } = useSelector((state) => state.productReducer);
+  const { products } = useSelector((state) => state.productReducer);
   const { title, titlePoints, tag, tagPoints, link, linkPoints, imageLink } =
     products[props.id];
+
+  const handleOnChange = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      HandleChange({
+        value: value,
+        id: props.id,
+        name: name,
+      })
+    );
+  };
 
   return (
     <>
@@ -35,11 +50,12 @@ export const Product = (props) => {
           variant="outlined"
           value={title}
           name="title"
+          onChange={handleOnChange}
         />
         <TextField
           className={classes.input}
           name="titlePoints"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
           label="Points"
           variant="outlined"
           value={titlePoints}
@@ -49,7 +65,7 @@ export const Product = (props) => {
           label="Product Tag"
           variant="outlined"
           name="tag"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
           value={tag}
         />
         <TextField
@@ -58,7 +74,7 @@ export const Product = (props) => {
           variant="outlined"
           value={tagPoints}
           name="tagPoints"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
         />
         <TextField
           className={classes.input}
@@ -66,7 +82,7 @@ export const Product = (props) => {
           variant="outlined"
           value={link}
           name="link"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
         />
         <TextField
           className={classes.input}
@@ -74,7 +90,7 @@ export const Product = (props) => {
           variant="outlined"
           value={linkPoints}
           name="linkPoints"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
         />
         <TextField
           className={classes.input}
@@ -82,7 +98,7 @@ export const Product = (props) => {
           variant="outlined"
           value={imageLink}
           name="imageLink"
-          //   onChange={inputHandle}
+          onChange={handleOnChange}
         />
       </form>
     </>

@@ -1,4 +1,9 @@
-import { ADD_PRODUCT, CHANGE_COLOR, RESET_PRODUCT } from "../utils/actionNames";
+import {
+  ADD_PRODUCT,
+  CHANGE_COLOR,
+  HANDLE_CHANGE,
+  RESET_PRODUCT,
+} from "../utils/actionNames";
 
 export const addProduct = (initialValues) => {
   return {
@@ -20,3 +25,9 @@ export const changeColor = (color) => {
   };
 };
 
+export const HandleChange = (payload) => {
+  return {
+    type: HANDLE_CHANGE,
+    payload: payload,
+  };
+};

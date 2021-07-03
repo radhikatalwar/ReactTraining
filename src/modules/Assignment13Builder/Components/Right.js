@@ -1,13 +1,17 @@
-import { Button, makeStyles, Paper } from "@material-ui/core";
-import React from "react";
+import { Button, makeStyles, Modal, Paper, Fade } from "@material-ui/core";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, resetProducts } from "../reduxComponents/action";
 import { Product } from "./Product";
 import ProductCard from "./ProductCard";
+import { CodeGenerator } from "./CodeGenerator";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   right: {
     width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   paper: {
     padding: "20px",
@@ -16,6 +20,9 @@ const styles = makeStyles({
   productCards: {
     display: "flex",
     flexWrap: "wrap",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   button: {
     textTransform: "none",
@@ -28,7 +35,7 @@ const styles = makeStyles({
       backgroundColor: "#2a2a2a",
     },
   },
-});
+}));
 
 const initialValues = {
   id: Math.floor(Math.random() * 10000),
@@ -45,6 +52,11 @@ export const Right = () => {
   const classes = styles();
   const dispatch = useDispatch();
   const { products, color } = useSelector((state) => state.productReducer);
+  const [open, setOpen] = useState(false);
+
+  const handleModal = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className={classes.right}>
@@ -72,9 +84,22 @@ export const Right = () => {
         >
           {"Reset Table"}
         </Button>
-        <Button style={{ backgroundColor: color }} className={classes.button}>
+        <Button
+          style={{ backgroundColor: color }}
+          className={classes.button}
+          onClick={handleModal}
+        >
           {"Generate Code"}
         </Button>
+        <Modal
+          open={open}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <Fade in={open}>
+            <CodeGenerator handleModal={handleModal} />
+          </Fade>
+        </Modal>
         <div className={classes.productCards}>
           {products &&
             products.length > 0 &&

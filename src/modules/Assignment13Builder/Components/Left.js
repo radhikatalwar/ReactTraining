@@ -5,13 +5,13 @@ import {
   ListItemText,
   makeStyles,
   Paper,
-  Typography,
 } from "@material-ui/core";
 import { ChromePicker } from "react-color";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeColor } from "../reduxComponents/action";
+import { CSSGenerator } from "./CSSGenerator";
 
 const styles = makeStyles({
   right: {
@@ -21,9 +21,11 @@ const styles = makeStyles({
     fontWeight: "bold",
   },
   paper: {
-    width: "85%",
     padding: "11px",
     margin: "14px",
+  },
+  colorPicker: {
+    width: "100% !important",
   },
 });
 
@@ -31,7 +33,7 @@ export const Left = () => {
   const classes = styles();
   const [open, setOpen] = useState({ cssopen: false, coloropen: false });
   const dispatch = useDispatch();
-  const { color, products } = useSelector((state) => state.productReducer);
+  const { color } = useSelector((state) => state.productReducer);
 
   return (
     <div className={classes.left}>
@@ -43,13 +45,12 @@ export const Left = () => {
               setOpen({ ...open, cssopen: !open.cssopen });
             }}
           >
-            <ListItemText />
-            <Typography className={classes.heading}>
-              {"Copy CSS To Website"}
-            </Typography>
+            <ListItemText primary="Copy CSS To Website" />
             {open.cssopen ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse in={open.cssopen}></Collapse>
+          <Collapse in={open.cssopen}>
+            <CSSGenerator />
+          </Collapse>
         </Paper>
         <Paper elevation={3} className={classes.paper}>
           <ListItem
@@ -58,14 +59,12 @@ export const Left = () => {
               setOpen({ ...open, coloropen: !open.coloropen });
             }}
           >
-            <ListItemText />
-            <Typography className={classes.heading}>
-              {"Change Color Scheme"}
-            </Typography>
+            <ListItemText primary="Change Color Scheme" />
             {open.coloropen ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={open.coloropen}>
             <ChromePicker
+              className={classes.colorPicker}
               color={color}
               onChangeComplete={(updatedColor) => {
                 dispatch(changeColor(updatedColor.hex));
