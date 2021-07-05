@@ -6,16 +6,19 @@ import {
   makeStyles,
   Paper,
 } from "@material-ui/core";
-import { ChromePicker } from "react-color";
+import { ChromePicker, SwatchesPicker } from "react-color";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeColor } from "../reduxComponents/action";
 import { CSSGenerator } from "./CSSGenerator";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   right: {
     width: "20%",
+    [theme.breakpoints.down("sm")]: {
+      width: "86%",
+    },
   },
   heading: {
     fontWeight: "bold",
@@ -23,11 +26,16 @@ const styles = makeStyles({
   paper: {
     padding: "11px",
     margin: "14px",
+    width: "232px",
+    overflow:"auto",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   colorPicker: {
     width: "100% !important",
   },
-});
+}));
 
 export const Left = () => {
   const classes = styles();
@@ -64,6 +72,13 @@ export const Left = () => {
           </ListItem>
           <Collapse in={open.coloropen}>
             <ChromePicker
+              className={classes.colorPicker}
+              color={color}
+              onChangeComplete={(updatedColor) => {
+                dispatch(changeColor(updatedColor.hex));
+              }}
+            />
+            <SwatchesPicker
               className={classes.colorPicker}
               color={color}
               onChangeComplete={(updatedColor) => {

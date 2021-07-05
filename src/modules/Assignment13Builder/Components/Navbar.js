@@ -18,10 +18,10 @@ const styles = makeStyles((theme) => ({
       textAlign: "center",
     },
   },
-  links:{
+  links: {
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
-      padding:"0 10px",
+      padding: "0 10px",
     },
   },
   link: {
@@ -57,7 +57,9 @@ export const Navbar = () => {
         <Link href="#" className={classes.link} underline={"none"}>
           {"Contact"}
         </Link>
-        <Button style={{backgroundColor:color}} className={classes.button}>{"Hire Us"}</Button>
+        <Button style={{ backgroundColor: color }} className={classes.button}>
+          {"Hire Us"}
+        </Button>
       </div>
     </div>
   );

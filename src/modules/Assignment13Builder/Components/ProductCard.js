@@ -76,7 +76,12 @@ export default function ProductCard(props) {
           >{`Product ${props.id} Here`}</Typography>
           <CardMedia
             className={classes.media}
-            image="./images/assignment13/box.jpeg"
+            image={
+              props.imageLink === ""
+                ? "./images/assignment13/box.jpeg"
+                : props.imageLink
+            }
+            // https://homepages.cae.wisc.edu/~ece533/images/airplane.png
           />
           <CardContent>
             <Typography className={classes.about}>

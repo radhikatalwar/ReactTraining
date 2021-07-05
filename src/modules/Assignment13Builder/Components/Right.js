@@ -35,6 +35,9 @@ const styles = makeStyles((theme) => ({
       backgroundColor: "#2a2a2a",
     },
   },
+  modal: {
+    overflow: "auto",
+  },
 }));
 
 const initialValues = {
@@ -92,6 +95,7 @@ export const Right = () => {
           {"Generate Code"}
         </Button>
         <Modal
+          className={classes.modal}
           open={open}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -114,6 +118,7 @@ export const Right = () => {
                   tagPoints={product.tagPoints}
                   link={product.link}
                   linkPoints={product.linkPoints}
+                  imageLink={product.imageLink}
                 />
               );
             })}

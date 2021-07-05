@@ -1,9 +1,10 @@
 import { Button, makeStyles, Paper } from "@material-ui/core";
 import React from "react";
+import { useSelector } from "react-redux";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const styles = makeStyles((theme) =>({
+const styles = makeStyles((theme) => ({
   mainContainer: {
     display: "flex",
     justifyContent: "center",
@@ -16,10 +17,10 @@ const styles = makeStyles((theme) =>({
     alignItems: "center",
     flexDirection: "column",
     padding: "20px",
-    width: "50%",
+    width: "fit-content",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      display:"initial",
+      display: "initial",
     },
   },
   button: {
@@ -37,67 +38,42 @@ const styles = makeStyles((theme) =>({
 
 export const CodeGenerator = (props) => {
   const classes = styles();
-  const codeString = `
-  import React from "react";
-  import Card from "@material-ui/core/Card";
-  import CardActionArea from "@material-ui/core/CardActionArea";
-  import CardActions from "@material-ui/core/CardActions";
-  import CardContent from "@material-ui/core/CardContent";
-  import CardMedia from "@material-ui/core/CardMedia";
-  import Button from "@material-ui/core/Button";
-  import Typography from "@material-ui/core/Typography";
-  import { makeStyles } from "@material-ui/core";
+  const { products } = useSelector((state) => state.productReducer);
+  var finalString = "";
 
-  <Card className={classes.card} raised={true}>
-    <CardActionArea>
-      <Rating defaultValue={5} className={classes.star} />
-      <Typography
-        variant="h6"
-        className={classes.heading}
-      ></Typography>
-      <CardMedia
-        className={classes.media}
-        image="./images/assignment13/box.jpeg"
-      />
-      <CardContent>
-        <Typography className={classes.about}>
-          <PlayCircleFilledIcon
-            className={classes.icon}
-            style={{ color: color }}
-          />
-        </Typography>
-        <Typography className={classes.about}>
-          <PlayCircleFilledIcon
-            className={classes.icon}
-            style={{ color: color }}
-          />
-        </Typography>
-        <Typography className={classes.about}>
-          <PlayCircleFilledIcon
-            className={classes.icon}
-            style={{ color: color }}
-          />
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions className={classes.action}>
-      <Button
-        size="small"
-        variant="contained"
-        className={classes.button}
-        style={{ backgroundColor: color }}
-      >
-        {"Check on Amazon"}
-        <ArrowForwardIosIcon fontSize={"small"} />
-      </Button>
-    </CardActions>
-  </Card>`;
+  products.map((product, index) => {
+    const codeString = `<div class="card_wrapper">
+    <div class="stars">
+      <i class="fa fa-star"> </i>
+      <i class="fa fa-star"> </i>
+      <i class="fa fa-star"> </i>
+      <i class="fa fa-star"> </i>
+      <i class="fa fa-star"> </i>
+    </div>
+    <div class="ptitle">
+      <h2>Product ${index} Here</h2>
+    </div>
+    <div class="image">
+      <img src=${product.imageLink}" />
+    </div>
+    <div class="about">
+      <p><i class="fa fa-play-circle play" aria-hidden="true"></i>${product.title}</p>
+      <p><i class="fa fa-play-circle play" aria-hidden="true"></i>${product.tag}</p>
+      <p><i class="fa fa-play-circle play" aria-hidden="true"></i>${product.link}</p>
+    </div>
+    <button>
+      Check on Amazon<i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+    `;
+    finalString += codeString;
+  });
 
   return (
     <div className={classes.mainContainer}>
       <Paper elevation={3} className={classes.paper}>
         <SyntaxHighlighter language="jsx" style={dracula}>
-          {codeString}
+          {finalString}
         </SyntaxHighlighter>
         <Button
           className={classes.button}

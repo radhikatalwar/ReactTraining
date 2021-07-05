@@ -12,48 +12,43 @@ const styles = makeStyles({
 export const CSSGenerator = () => {
   const classes = styles();
   const codeString = `
-  card: {
-    width: "27%",
-    margin: "25px",
-    padding: "0px",
-  },
-  heading: {
-    fontFamily: "Poppins",
-    fontWeight: "bold",
-    color: "#2c3e50",
-    textAlign: "center",
-    padding: "10px",
-  },
-  media: {
-    height: 180,
-    width: 200,
-    margin: "0 auto",
-    borderRadius: "50%",
-  },
-  action: {
-    padding: "0",
-  },
-  button: {
-    width: "100%",
-    height: "50px",
-    backgroundColor: "#177fe4",
-    color: "#fff",
-    fontSize: "16px",
-  },
-  about: {
-    color: "#2c3e50",
-    textAlign: "center",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  icon: {
-    color: "#177fe4",
-    margin: "0 10px",
-  },
-  star: {
-    margin: "10px 23%",
-    textAlign: "center",
+  .card_wrapper {
+    box-shadow: 0px 1px 20px 2px rgba(189, 180, 180, 0.62);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+  }
+  .stars i {
+    color: orange;
+    margin: 15px 0 0;
+  }
+  .ptitle h2 {
+    color: #2c3e50;
+    text-align: center;
+    font-weight: bold;
+  }
+  img {
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+  }
+  .play {
+    color: rgb(40, 107, 207);
+    margin: 0 10px;
+    font-size: 1.5rem;
+  }
+  button {
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    background-color: #177fe4;
+    outline: none;
+    border: none;
+  }
+  button i {
+    margin: 0 10px;
   }`;
 
   return (
