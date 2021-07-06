@@ -27,7 +27,7 @@ const styles = makeStyles((theme) => ({
     padding: "11px",
     margin: "14px",
     width: "232px",
-    overflow:"auto",
+    overflow: "auto",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },

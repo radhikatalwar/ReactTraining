@@ -1,0 +1,29 @@
+.postContainer {
+  display: initial;
+}
+.postContainerLeft {
+  width: 84%;
+  margin: 0 auto;
+}
+.postContainerRight {
+  display: none;
+}
+.headingRecom {
+  margin: 35px 0 0 30px;
+}
+@media screen and (min-width: 600px) {
+  .postContainer {
+    display: flex;
+  }
+  .postContainerLeft {
+    width: 80%;
+  }
+  .postContainerRight {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+  .headingRecom {
+    margin: 0;
+  }
+}
