@@ -4,8 +4,10 @@ import React from "react";
 // import { Provider } from "react-redux";
 // import { Assignment13Builder } from "./modules/Assignment13Builder";
 // import { store } from "./modules/Assignment13Builder/store/store";
-import { Assignment14SheetIntegration } from "./modules/Assignment14SheetIntegration";
+// import { Assignment14SheetIntegration } from "./modules/Assignment14SheetIntegration";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Assignment15CMS } from "./modules/Assignment15CMS";
+// import { Time } from "./modules/Assignment16Time";
 
 const App = () => {
   return (
@@ -15,8 +17,10 @@ const App = () => {
     // <ContextAPI />
 
     <Router>
-      <Assignment14SheetIntegration />
+      <Assignment15CMS />
     </Router>
+
+    // <Time/>
   );
 };
 

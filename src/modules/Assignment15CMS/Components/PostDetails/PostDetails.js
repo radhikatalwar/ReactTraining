@@ -1,10 +1,25 @@
 import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import { RecommendedPost } from "./RecommendedPost";
-import "./PostDetails.css";
+import { makeStyles, Paper, Typography } from "@material-ui/core";
 import { AllAboutPost } from "./AllAboutPost";
 
+const styles = makeStyles({
+  postContainer: {
+    width: "90%",
+    display: "flex",
+    position: "absolute",
+    top: "100px",
+    left: "5%",
+    zIndex: "2",
+  },
+  postContainerLeft: { width: "77%", marginRight: "30px" },
+  postContainerRight: { width: "20%" },
+  headingRecom: { margin: "12px", fontWeight: "bold" },
+});
+
 export const PostDetails = () => {
+  const classes = styles();
   const { id } = useParams();
   const [data, setData] = useState([]);
 
@@ -31,12 +46,14 @@ export const PostDetails = () => {
   console.log(FindPost);
 
   return (
-    <div className={"postContainer"}>
-      <div className={"postContainerLeft"}>
+    <div className={classes.postContainer}>
+      <Paper className={classes.postContainerLeft}>
         {FindPost && <AllAboutPost post={FindPost} />}
-      </div>
-      <div className={"postContainerRight"}>
-        <h1 className={"headingRecom"}>{"RECOMMENDED"}</h1>
+      </Paper>
+      <Paper className={classes.postContainerRight}>
+        <Typography className={classes.headingRecom}>
+          {"RECOMMENDED"}
+        </Typography>
         {data.map((post, index) => {
           if (
             post.categories.includes(FindPostTitle[0]) &&
@@ -45,7 +62,7 @@ export const PostDetails = () => {
             return <RecommendedPost key={index} post={post} />;
           }
         })}
-      </div>
+      </Paper>
     </div>
   );
 };

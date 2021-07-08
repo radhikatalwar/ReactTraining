@@ -9,7 +9,10 @@ export const AllAboutPost = (props) => {
     <>
       <h1 className={"postHeading"}>{postTitle}</h1>
       <div className={"AboutUser"}>
-        <img src="https://cdn.wrytin.com/images/avatar/s/256/default.jpeg" />
+        <img
+          src="https://cdn.wrytin.com/images/avatar/s/256/default.jpeg"
+          alt={"User Profile"}
+        />
         <p>{publishedby}</p>
       </div>
       <img
