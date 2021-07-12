@@ -61,26 +61,64 @@ const InitialValues = {
 
 export const ModalComponent = (props) => {
   const classes = styles();
-
   const [article, setArticle] = useState(InitialValues);
-  console.log(props.open, article);
-  const handleSubmit = (event) => {
+  console.log(article);
+
+  const { id, postImageURL, postContent, postTitle, categories, publishedby } =
+    article;
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     console.log(article);
-    axios
-      .post("https://sheet2api.com/v1/eUTRQPcCTJWP/assignment14", article)
-      .then((response) => {
-        console.log(response);
+
+    // const response = await fetch(
+    //   "https://v1.nocodeapi.com/radhikatalwar/google_sheets/AYbyOGZqxPzvdUhJtabId=Assignment14",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify([
+    //       [id, postImageURL, postContent, postTitle, categories, publishedby],
+    //     ]),
+    //   }
+    // );
+    // await response.json();
+    console.log(JSON.stringify(article));
+    fetch(
+      "https://sheet.best/api/sheets/0e5d2714-415c-49b4-91a1-2222ff8c4a76",
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(article),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        console.log(error);
       });
+
+    // axios
+    //   .post(
+    //     "https://sheet.best/api/sheets/0e5d2714-415c-49b4-91a1-2222ff8c4a76",
+    //     article
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
     setArticle(InitialValues);
   };
 
-  const { postImageURL, postContent, postTitle, categories, publishedby } =
-    article;
   const inputHandle = (event) => {
     const { name, value } = event.target;
     setArticle({ ...article, [name]: value });

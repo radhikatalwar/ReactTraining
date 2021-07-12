@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Fade,
@@ -75,21 +75,25 @@ export const LoginModalComponent = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getUser();
-
-    console.log(data, userName, data.length, Valid);
-    if (data.length === 0) {
+    if (userName === "") {
       setValid(false);
     } else {
-      props.handleLoginModal();
-      setUserName("");
-      setData([]);
+      getUser();
+    }
+  };
+
+  useEffect(() => {
+    if (data.length !== 0) {
+      // Do Anything Here on Change in Data State
       window.confirm(
         `Hello ${data[0].name}.You are Logged in.
         Your Unique id is ${data[0].id}`
       );
+      props.handleLoginModal();
+      setUserName("");
+      setData([]);
     }
-  };
+  }, [data]);
 
   const inputHandle = (event) => {
     setUserName(event.target.value);
