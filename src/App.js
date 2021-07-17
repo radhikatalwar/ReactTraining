@@ -4,18 +4,18 @@ import React from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 // import { Assignment15CMS } from "./modules/Assignment15CMS";
 // import { Time } from "./modules/Assignment16Time";
-import { store } from "./modules/Assignment18EmailSignatureGen/store/store";
-import { Provider } from "react-redux";
-import { Assignment18EmailSignatureGen } from "./modules/Assignment18EmailSignatureGen";
-// import { Assignment19Style } from "./modules/Assignment19Style";
+// import { store } from "./modules/Assignment18EmailSignatureGen/store/store";
+// import { Provider } from "react-redux";
+// import { Assignment18EmailSignatureGen } from "./modules/Assignment18EmailSignatureGen";
+import { Assignment19Style } from "./modules/Assignment19Style";
 
 const App = () => {
   return (
-    // <Assignment19Style />
+    <Assignment19Style />
 
-    <Provider store={store}>
-      <Assignment18EmailSignatureGen />
-    </Provider>
+    // <Provider store={store}>
+    //   <Assignment18EmailSignatureGen />
+    // </Provider>
 
     // <Router>
     //   <Assignment15CMS />
