@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
-import { Typography, Paper } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const styles = makeStyles({
   row: {
@@ -14,27 +14,24 @@ const styles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
-  firstCell:{
-    borderLeft:"4px solid #407dec"
-  }
+  firstCell: {
+    borderLeft: "4px solid #407dec",
+  },
 });
 
 export const TableRowComp = () => {
   const classes = styles();
   return (
     <>
-    {/* <Paper className={classes.paper}> */}
       <TableRow className={classes.row}>
         <TableCell key={"step"} className={classes.firstCell}>
           <Typography>{"6"}</Typography>
         </TableCell>
-
         <TableCell key={"description"}>
           <Typography className={classes.about}>
             {"descr 1 test1 pt3 tes"}
           </Typography>
         </TableCell>
-
         <TableCell key={"m/c"}>
           <Typography>{"OL1"}</Typography>
         </TableCell>
@@ -48,7 +45,6 @@ export const TableRowComp = () => {
           <Typography>{"0.39"}</Typography>
         </TableCell>
       </TableRow>
-      {/* </Paper> */}
     </>
   );
 };

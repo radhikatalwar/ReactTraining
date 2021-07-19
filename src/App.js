@@ -7,11 +7,11 @@ import React from "react";
 // import { store } from "./modules/Assignment18EmailSignatureGen/store/store";
 // import { Provider } from "react-redux";
 // import { Assignment18EmailSignatureGen } from "./modules/Assignment18EmailSignatureGen";
-import { Assignment19Style } from "./modules/Assignment19Style";
+import { Assignment20InvoiceGenerator } from "./modules/Assignment20InvoiceGenerator";
 
 const App = () => {
   return (
-    <Assignment19Style />
+    <Assignment20InvoiceGenerator/>
 
     // <Provider store={store}>
     //   <Assignment18EmailSignatureGen />
