@@ -70,8 +70,6 @@ export const TableComp = () => {
   localStorage.setItem("total", "Total");
 
   const HandleChange = (id, key, event) => {
-    console.log("id", id);
-    console.log("key", key, event);
     setProducts(
       products.map((productInner) =>
         productInner.id !== id
@@ -82,7 +80,6 @@ export const TableComp = () => {
             }
       )
     );
-    console.log(products);
   };
 
   const HandleAdd = () => {
@@ -149,7 +146,6 @@ export const TableComp = () => {
                 </TableCell>
                 {Object.keys(initialDetails).map((key) => {
                   if (key !== "id") {
-                    console.log(product.id, key);
                     return (
                       <TableCell
                         key={key}
@@ -223,6 +219,7 @@ export const TableComp = () => {
             totalCost) /
             100}
         </Typography>
+        {console.log((parseInt(localStorage.getItem("tax").match(/\d+/))))}
       </div>
     </>
   );

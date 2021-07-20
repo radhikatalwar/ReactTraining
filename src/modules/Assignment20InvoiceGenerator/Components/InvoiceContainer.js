@@ -5,7 +5,7 @@ import {
   Divider,
   Typography,
 } from "@material-ui/core";
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import { ContentEditableDiv } from "./ContentEditableDiv";
 import { Data } from "./Data";
 import ReactToPdf from "react-to-pdf";
@@ -46,6 +46,9 @@ const styles = makeStyles({
     margin: "20px",
     display: "none",
   },
+  block: {
+    display: "block",
+  },
 });
 
 export const InvoiceContainer = () => {
@@ -61,6 +64,15 @@ export const InvoiceContainer = () => {
   );
   const ref = createRef();
 
+  const HandleClick = () => {
+    setItem(true);
+    setTimeout(() => {
+      setItem(false);
+    }, 1000);
+  };
+
+  const [item, setItem] = useState(false);
+
   return (
     <div className={classes.InvoiceContainer}>
       <Paper elevation={2} className={classes.paperLeft} ref={ref}>
@@ -75,14 +87,20 @@ export const InvoiceContainer = () => {
           name={"goodByeMessage"}
           style={{ lineHeight: "22px", fontSize: "14px", marginTop: "20px" }}
         />
-        <Typography className={classes.lastLine}>
+        <Typography className={`${classes.lastLine} ${item && classes.block}`}>
           {"Powered By Free Invoice Generator"}
         </Typography>
       </Paper>
       <Paper className={classes.paperButton} elevation={2}>
         <ReactToPdf targetRef={ref} filename="Invoice.pdf">
           {({ toPdf }) => (
-            <Button className={classes.button} onClick={toPdf}>
+            <Button
+              className={classes.button}
+              onClick={() => {
+                HandleClick();
+                toPdf();
+              }}
+            >
               {"Download this Invoice"}
             </Button>
           )}
