@@ -1,5 +1,5 @@
 import React from "react";
-import { Assignment21MoneyDashboard } from "./modules/Assignment21MoneyDashboard";
+import { Assignment21ExpenseTracker } from "./modules/Assignment21ExpenseTracker";
 // import Assignment12MaterialUI from "./modules/Assignment12MaterialUI";
 // import { Assignment14SheetIntegration } from "./modules/Assignment14SheetIntegration";
 // import { BrowserRouter as Router } from "react-router-dom";
@@ -12,7 +12,7 @@ import { Assignment21MoneyDashboard } from "./modules/Assignment21MoneyDashboard
 
 const App = () => {
   return (
-    <Assignment21MoneyDashboard />
+    <Assignment21ExpenseTracker/>
     // <Assignment20InvoiceGenerator/>
     // <Router>
     // <Assignment15CMS/>
