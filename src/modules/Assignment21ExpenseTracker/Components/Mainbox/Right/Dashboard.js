@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
-import useTransactions from "../../../useTransactions";
 import { Details } from "./Details";
 import { AboutUser } from "./AboutUser";
 import { FormComp } from "../FormComp";
@@ -18,7 +17,6 @@ const styles = makeStyles({
 
 export const Dashboard = () => {
   const classes = styles();
-  const { total } = useTransactions("income");
 
   return (
     <div className={classes.upper}>

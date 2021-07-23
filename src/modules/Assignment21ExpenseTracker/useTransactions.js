@@ -35,7 +35,6 @@ const useTransactions = (title) => {
   };
 
   const rightArray = title === "income" ? income : expense;
-  console.log({ rightArray, income, expense, transactions });
 
   const graphData = {
     datasets: [
@@ -47,7 +46,21 @@ const useTransactions = (title) => {
     ],
     labels: rightArray.map((c, i) => i + 1),
   };
-  return { filteredCategories, total, chartData, graphData };
+
+  const currDate = new Date().getDate();
+  const weekArray = rightArray.slice(currDate - 6, currDate + 1);
+
+  const graphDataWeek = {
+    datasets: [
+      {
+        data: weekArray.map((val) => val),
+        backgroundColor: title === "income" ? "#123123" : "#b50d12",
+        label: title,
+      },
+    ],
+    labels: weekArray.map((c, i) => currDate - 6 + i),
+  };
+  return { filteredCategories, total, chartData, graphData, graphDataWeek };
 };
 
 export default useTransactions;

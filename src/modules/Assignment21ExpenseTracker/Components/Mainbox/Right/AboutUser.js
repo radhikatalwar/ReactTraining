@@ -44,6 +44,7 @@ const styles = makeStyles({
     backgroundColor: "#6c81e9",
     textTransform: "none",
     fontWeight: "900",
+    color: "white",
   },
 });
 

@@ -1,12 +1,12 @@
 export const contextReducer = (state, action) => {
-  let transactions;
   var date;
-  
+
   switch (action.type) {
     case "DELETE_TRANSACTION":
       const findTransaction = state.transactions.find(
         (t) => t.id === action.payload
       );
+      console.log(findTransaction);
       date = findTransaction.date.slice(-2);
       if (findTransaction.type === "income") {
         state.income = state.income.map((val, index) =>
@@ -14,10 +14,10 @@ export const contextReducer = (state, action) => {
         );
       } else {
         state.expense = state.expense.map((val, index) =>
-          index === Number(date) ? val + findTransaction.amount : val
+          index === Number(date) ? val - findTransaction.amount : val
         );
       }
-
+      console.log(date, state.income, state.expense);
       state = {
         ...state,
         transactions: state.transactions.filter((t) => t.id !== action.payload),

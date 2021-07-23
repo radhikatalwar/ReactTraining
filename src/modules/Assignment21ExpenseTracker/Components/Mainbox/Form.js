@@ -7,7 +7,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Typography,
   makeStyles,
 } from "@material-ui/core";
 import { ExpenseTrackerContent } from "../../Context/context";
