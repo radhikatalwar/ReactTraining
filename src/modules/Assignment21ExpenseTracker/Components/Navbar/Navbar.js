@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppBar, Button, makeStyles, Toolbar } from "@material-ui/core";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import fileDownload from "js-file-download";
 import { ExpenseTrackerContent } from "../../Context/context";
+import { ModalComponent } from "./ModalComponent";
+import { income } from "../../Constants/InitialValues";
 
 const styles = makeStyles((theme) => ({
   addbar: {
@@ -60,32 +62,37 @@ const styles = makeStyles((theme) => ({
 export const Navbar = () => {
   const classes = styles();
   const { transactions } = useContext(ExpenseTrackerContent);
+  const [open, setOpen] = useState(false);
+
+  const handleModal = () => {
+    setOpen(!open);
+  };
 
   var content = "";
+  var yourData = "";
+
   const handleClick = () => {
-    content += `Your Transactions \n [ `;
+    content += `Your Transactions : [`;
 
     if (transactions.length > 0) {
       transactions.map((transaction, index) => {
         content =
           content +
-          `\n { \n "id" : ${index + 1} , \n "amount" : ${
-            transaction.amount
-          } , \n "type" : ${transaction.type} , \n "date" : ${
-            transaction.date
-          } , \n "category" : ${transaction.category},   \n },  \n `;
+          `{id:${index + 1},amount:${transaction.amount},type:${
+            transaction.type
+          },date:${transaction.date},category:${transaction.category}},`;
       });
     }
 
     content += `] \n`;
 
-    content += `\n Your Income per Day : \n [ ${
-      JSON.parse(localStorage.getItem("income")) || new Array(31).fill(0)
-    } ] \n`;
+    content += `\n Your Income per Day : \n  ${
+      JSON.parse(localStorage.getItem("income")) || income
+    }  \n`;
 
-    content += `\n Your Expense per Day : \n [ ${
-      JSON.parse(localStorage.getItem("expense")) || new Array(31).fill(0)
-    } ] \n`;
+    content += `\n Your Expense per Day : \n  ${
+      JSON.parse(localStorage.getItem("expense")) || income
+    }  \n`;
 
     fileDownload(`${content}`, `YourData.json`);
     content = "";
@@ -104,7 +111,10 @@ export const Navbar = () => {
           </div>
           <div className={classes.innerContainer}>
             <NotificationsIcon className={classes.icon} />
-            <Button className={classes.button}>{"Import Your Data"}</Button>
+            <Button className={classes.button} onClick={handleModal}>
+              {"Import Your Data"}
+            </Button>
+            <ModalComponent handleModal={handleModal} open={open} />
             <Button className={classes.button} onClick={handleClick}>
               {"Export Your Data"}
             </Button>

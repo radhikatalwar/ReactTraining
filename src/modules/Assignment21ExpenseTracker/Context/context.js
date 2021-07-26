@@ -1,11 +1,13 @@
 import React, { useReducer, createContext } from "react";
+import { income } from "../Constants/InitialValues";
 import { contextReducer } from "./contextReducer";
 
 const initialState = {
   transactions: JSON.parse(localStorage.getItem("transactions")) || [],
-  income: JSON.parse(localStorage.getItem("income")) || new Array(31).fill(0),
-  expense: JSON.parse(localStorage.getItem("expense")) || new Array(31).fill(0),
+  income: JSON.parse(localStorage.getItem("income")) || income,
+  expense: JSON.parse(localStorage.getItem("expense")) || income,
 };
+console.log(initialState.transactions);
 
 export const ExpenseTrackerContent = createContext(initialState);
 

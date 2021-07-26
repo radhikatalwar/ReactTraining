@@ -39,15 +39,15 @@ const styles = makeStyles({
 
 export const Graph = (props) => {
   const classes = styles();
-  const { graphData, graphDataWeek } = useTransactions(props.title);
-  const [dataArray, setdataArray] = useState(graphData);
+  const { graphData, graphDataYear } = useTransactions(props.title);
+  const [period, setPeriod] = useState("month");
 
-  const convertToWeek = () => {
-    setdataArray(graphDataWeek);
+  const convertToYear = () => {
+    setPeriod("year");
   };
 
   const convertToMonth = () => {
-    setdataArray(graphData);
+    setPeriod("month");
   };
 
   return (
@@ -60,15 +60,15 @@ export const Graph = (props) => {
             </Typography>
           </div>
           <div>
-            <Button className={classes.button} onClick={convertToWeek}>
-              {"Week"}
+            <Button className={classes.button} onClick={convertToYear}>
+              {"Year"}
             </Button>
             <Button className={classes.button} onClick={convertToMonth}>
               {"Month"}
             </Button>
           </div>
         </div>
-        <Bar data={dataArray} />
+        <Bar data={period === "month" ? graphData : graphDataYear} />
       </CardContent>
     </Card>
   );

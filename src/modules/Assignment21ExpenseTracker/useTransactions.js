@@ -35,32 +35,51 @@ const useTransactions = (title) => {
   };
 
   const rightArray = title === "income" ? income : expense;
+  const monthGoingOn = new Date().getMonth();
+  const monthArray = rightArray[monthGoingOn];
 
   const graphData = {
     datasets: [
       {
-        data: rightArray.map((val) => val),
+        data: monthArray.map((val) => val),
         backgroundColor: title === "income" ? "#123123" : "#b50d12",
         label: title,
       },
     ],
-    labels: rightArray.map((c, i) => i + 1),
+    labels: monthArray.map((c, i) => i + 1),
   };
 
-  const currDate = new Date().getDate();
-  const weekArray = rightArray.slice(currDate - 6, currDate + 1);
+  const yearArray = rightArray.map((month, index) => {
+    return rightArray[index].reduce((acc, currValue) => {
+      return (acc += currValue);
+    });
+  });
+  const Labels = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
-  const graphDataWeek = {
+  const graphDataYear = {
     datasets: [
       {
-        data: weekArray.map((val) => val),
+        data: yearArray.map((val) => val),
         backgroundColor: title === "income" ? "#123123" : "#b50d12",
         label: title,
       },
     ],
-    labels: weekArray.map((c, i) => currDate - 6 + i),
+    labels: Labels.map((c) => c),
   };
-  return { filteredCategories, total, chartData, graphData, graphDataWeek };
+  return { filteredCategories, total, chartData, graphData, graphDataYear };
 };
 
 export default useTransactions;
