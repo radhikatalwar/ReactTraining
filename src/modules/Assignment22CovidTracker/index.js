@@ -19,7 +19,7 @@ const styles = makeStyles({
   },
 });
 
-export const Assignment22APIwithFormik = () => {
+export const Assignment22CovidTracker = () => {
   const dispatch = useDispatch();
   const classes = styles();
 
