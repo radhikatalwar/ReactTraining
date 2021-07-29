@@ -69,7 +69,6 @@ export const Navbar = () => {
   };
 
   var content = "";
-  var yourData = "";
 
   const handleClick = () => {
     content += `Your Transactions : [`;
@@ -78,9 +77,9 @@ export const Navbar = () => {
       transactions.map((transaction, index) => {
         content =
           content +
-          `{id:${index + 1},amount:${transaction.amount},type:${
+          `{id:${index + 1},amount:${transaction.amount},type:"${
             transaction.type
-          },date:${transaction.date},category:${transaction.category}},`;
+          }",date:"${transaction.date}",category:"${transaction.category}"},`;
       });
     }
 
@@ -112,7 +111,7 @@ export const Navbar = () => {
           <div className={classes.innerContainer}>
             <NotificationsIcon className={classes.icon} />
             <Button className={classes.button} onClick={handleModal}>
-              {"Import Your Data"}
+              {"Demo"}
             </Button>
             <ModalComponent handleModal={handleModal} open={open} />
             <Button className={classes.button} onClick={handleClick}>

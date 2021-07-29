@@ -7,6 +7,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
+import { useHistory } from "react-router";
 
 const styles = makeStyles({
   modal: {
@@ -24,14 +25,6 @@ const styles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
   },
-  search: {
-    position: "relative",
-    marginLeft: 0,
-    width: "35%",
-    padding: "5px 10px",
-    borderRadius: "10px",
-    backgroundColor: "#daf5f9",
-  },
   input: {
     margin: "10px",
     width: "300px",
@@ -39,48 +32,54 @@ const styles = makeStyles({
   button: {
     textTransform: "none",
     fontWeight: "900",
-    color: "#fff",
-    backgroundColor: "#130444",
+    backgroundColor: "#b03938",
+    color: "white",
+
     fontSize: "14px",
     margin: "6px 5px",
     "&:hover": {
-      backgroundColor: "#000",
+      color: "#b03938",
+      backgroundColor: "white",
     },
+  },
+  title: {
+    fontWeight: "900",
+    letterSpacing: "2px",
+    color: "#b03938",
+    textAlign: "center",
   },
 });
 
 const InitialValues = {
-  transactions: [],
-  income: [],
-  expense: [],
+  email: "",
+  password: "",
 };
 
-export const ModalComponent = (props) => {
+export const LoginModalComponent = (props) => {
   const classes = styles();
-  const [data, setData] = useState(InitialValues);
-  console.log(data);
+  const [user, setUser] = useState(InitialValues);
+  const history = useHistory();
 
-  const { transactions, income, expense } = data;
+  const { email, password } = user;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-    localStorage.setItem(
-      "income",
-      "[" + new Function("return " + JSON.stringify(income.trim()))() + "]"
-    );
-
-    localStorage.setItem(
-      "expense",
-      "[" + new Function("return " + JSON.stringify(expense.trim()))() + "]"
-    );
-    setData(InitialValues);
+    const signedUser = JSON.parse(localStorage.getItem("User"));
+    if (
+      signedUser.email === user.email &&
+      signedUser.password === user.password
+    ) {
+      props.handleLoginModal();
+      history.push("/details");
+      setUser(InitialValues);
+    } else {
+      alert("Wrong Email or Password!");
+    }
   };
 
   const inputHandle = (event) => {
     const { name, value } = event.target;
-    setData({ ...data, [name]: value });
+    setUser({ ...user, [name]: value });
   };
 
   return (
@@ -88,7 +87,9 @@ export const ModalComponent = (props) => {
       <Modal className={classes.modal} open={props.open} closeAfterTransition>
         <Fade in={props.open}>
           <div className={classes.paper}>
-            <Typography variant="h5">{"Add Your Details"}</Typography>
+            <Typography variant="h5" className={classes.title}>
+              {"LOGIN"}
+            </Typography>
             <form
               onSubmit={handleSubmit}
               className={classes.form}
@@ -98,42 +99,33 @@ export const ModalComponent = (props) => {
               <TextField
                 className={classes.input}
                 required
-                label="Your Transactions"
+                label="Email"
                 variant="outlined"
-                value={transactions}
-                name="transactions"
+                value={email}
+                name="email"
                 onChange={inputHandle}
               />
               <TextField
                 className={classes.input}
                 required
-                name="income"
-                onChange={inputHandle}
-                label="Your Income for month"
+                type="password"
+                label="Password"
                 variant="outlined"
-                value={income}
-              />
-              <TextField
-                className={classes.input}
-                required
-                label="Your Expense for month"
-                variant="outlined"
-                name="expense"
+                value={password}
+                name="password"
                 onChange={inputHandle}
-                value={expense}
               />
               <Button
                 variant="contained"
                 className={classes.button}
                 type="submit"
-                onClick={props.handleModal}
               >
-                {"Submit Details"}
+                {"Login"}
               </Button>
               <Button
                 variant="contained"
                 className={classes.button}
-                onClick={props.handleModal}
+                onClick={props.handleLoginModal}
               >
                 {"Close"}
               </Button>

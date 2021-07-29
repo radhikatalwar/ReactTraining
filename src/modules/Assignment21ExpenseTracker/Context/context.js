@@ -8,6 +8,7 @@ const initialState = {
   expense: JSON.parse(localStorage.getItem("expense")) || income,
 };
 console.log(initialState.transactions);
+// console.log(JSON.parse(initialState.transactions));
 
 export const ExpenseTrackerContent = createContext(initialState);
 
