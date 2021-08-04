@@ -1,21 +1,15 @@
 import React from "react";
-// import { Provider } from "react-redux";
-// import store from "./modules/Assignment22CovidTracker/store/store";
 // import { BrowserRouter as Router } from "react-router-dom";
-// import { Assignment22CovidTracker } from "./modules/Assignment22CovidTracker";
-import { Assignment23Api } from "./modules/Assignment23Api";
-// import { Assignment20InvoiceGenerator } from "./modules/Assignment20InvoiceGenerator";
+// import { Assignment24DogSearch } from "./modules/Assignment24DogSearch";
+import { Assignment25SelectData } from "./modules/Assignment25SelectData";
 
 const App = () => {
   return (
-    <Assignment23Api />
+    // <Assignment23Api />
     // <Router>
-    //   <Provider store={store}>
-    //     <Assignment22CovidTracker />
-    //   </Provider>
+    //   <Assignment24DogSearch />
     // </Router>
-
-    // <Assignment20InvoiceGenerator/>
+    <Assignment25SelectData />
   );
 };
 
