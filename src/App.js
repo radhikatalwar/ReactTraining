@@ -1,17 +1,18 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
-import store from "./modules/Assignment28Quotes/store/store";
-// import { Assignment27UI } from "./modules/Assignment27UI";
-import { Assignment28Quotes } from "./modules/Assignment28Quotes";
+// import { Provider } from "react-redux";
+// import { BrowserRouter as Router } from "react-router-dom";
+// import store from "./modules/Assignment29Pagination/store/store";
+// import { Assignment29Pagination } from "./modules/Assignment29Pagination";
+import { Assignment30Firebase } from "./modules/Assignment30Firebase";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <Assignment28Quotes />
-      </Router>
-    </Provider>
+    // <Provider store={store}>
+    //   <Router>
+    //     <Assignment29Pagination />
+    //   </Router>
+    // </Provider>
+    <Assignment30Firebase />
   );
 };
 
