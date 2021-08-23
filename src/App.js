@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 // import store from "./modules/Assignment29Pagination/store/store";
 // import { Assignment29Pagination } from "./modules/Assignment29Pagination";
-import { Assignment30Firebase } from "./modules/Assignment30Firebase";
+import { Assignment31InvoiceUsingFirebase } from "./modules/Assignment31InvoiceUsingFirebase";
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
     //   </Router>
     // </Provider>
     <Router>
-      <Assignment30Firebase />
+      <Assignment31InvoiceUsingFirebase />
     </Router>
   );
 };
