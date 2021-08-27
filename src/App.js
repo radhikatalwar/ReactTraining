@@ -1,9 +1,9 @@
 import React from "react";
 // import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
+import { Assignment33PDFGenerator } from "./modules/Assignment33PDFGenerator";
 // import store from "./modules/Assignment29Pagination/store/store";
 // import { Assignment29Pagination } from "./modules/Assignment29Pagination";
-import { Assignment31InvoiceUsingFirebase } from "./modules/Assignment31InvoiceUsingFirebase";
 
 const App = () => {
   return (
@@ -12,9 +12,8 @@ const App = () => {
     //     <Assignment29Pagination />
     //   </Router>
     // </Provider>
-    <Router>
-      <Assignment31InvoiceUsingFirebase />
-    </Router>
+
+    <Assignment33PDFGenerator />
   );
 };
 
