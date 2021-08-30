@@ -1,7 +1,7 @@
 import React from "react";
 // import { Provider } from "react-redux";
 // import { BrowserRouter as Router } from "react-router-dom";
-import { Assignment33PDFGenerator } from "./modules/Assignment33PDFGenerator";
+import { Assignment33ComplexPDF } from "./modules/Assignment33ComplexPDF";
 // import store from "./modules/Assignment29Pagination/store/store";
 // import { Assignment29Pagination } from "./modules/Assignment29Pagination";
 
@@ -13,7 +13,7 @@ const App = () => {
     //   </Router>
     // </Provider>
 
-    <Assignment33PDFGenerator />
+    <Assignment33ComplexPDF />
   );
 };
 
