@@ -1,19 +1,25 @@
 import React from "react";
-// import { Provider } from "react-redux";
-// import { BrowserRouter as Router } from "react-router-dom";
-import { Assignment33ComplexPDF } from "./modules/Assignment33ComplexPDF";
-// import store from "./modules/Assignment29Pagination/store/store";
-// import { Assignment29Pagination } from "./modules/Assignment29Pagination";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+// import { Assignment31InvoiceUsingFirebase } from "./modules/Assignment31InvoiceUsingFirebase";
+// import { Assignment13Builder } from "./modules/Assignment13Builder";
+import { store } from "./modules/Assignment34RentalManagement/store/store";
+import { Assignment34RentalManagement } from "./modules/Assignment34RentalManagement";
 
 const App = () => {
   return (
     // <Provider store={store}>
-    //   <Router>
-    //     <Assignment29Pagination />
-    //   </Router>
+    //   <Assignment13Builder />
     // </Provider>
-
-    <Assignment33ComplexPDF />
+    // <Assignment21ExpenseTracker />
+    // <Router>
+    //   <Assignment31InvoiceUsingFirebase />
+    // </Router>
+    <Provider store={store}>
+      <Router>
+        <Assignment34RentalManagement />
+      </Router>
+    </Provider>
   );
 };
 

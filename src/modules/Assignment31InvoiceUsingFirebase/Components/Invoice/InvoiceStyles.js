@@ -19,7 +19,7 @@ export const styles = makeStyles({
   },
   paper: {
     padding: "20px",
-    width: "65%",
+    width: "58%",
     margin: "30px auto",
     textAlign: "center",
   },
