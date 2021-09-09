@@ -86,10 +86,10 @@ export const Signup = () => {
       .auth()
       .signInWithRedirect(FacebookAuthProvider)
       .then((result) => {
-        const user = result.user;
+        console.log(result.user);
         history.push("/done");
       })
-      .catch(err => {
+      .catch((err) => {
         alert(err.message);
       });
   };
