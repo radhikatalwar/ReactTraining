@@ -81,7 +81,7 @@ export const Introduction = () => {
       <div className={classes.rightMainContainer}>
         <img
           className={classes.image}
-          src="https://sandbox.elemisthemes.com/img/photos/about16.jpg"
+          src="../images/assignment38/photo3.png"
           alt="Intro"
         />
       </div>

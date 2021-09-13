@@ -3,7 +3,8 @@ import React from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 // import { store } from "./modules/Assignment34RentalManagement/store/store";
 // import { Assignment34RentalManagement } from "./modules/Assignment34RentalManagement";
-import { Assignment38RandomGenerator } from "./modules/Assignment38RandomGenerator";
+// import { Assignment39GalleryWithFirebase } from "./modules/Assignment39GalleryWithFirebase";
+import { Assignment39LuckyDraw } from "./modules/Assignment39LuckyDraw";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
     //     <Assignment34RentalManagement />
     //   </Router>
     // </Provider>
-    <Assignment38RandomGenerator />
+    // <Assignment39GalleryWithFirebase />
+    <Assignment39LuckyDraw />
   );
 };
 
