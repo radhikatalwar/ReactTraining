@@ -81,13 +81,14 @@ export const ModalComponent = ({ open, handleModal }) => {
                 {"LUCKY DRAW WINNERS"}
               </Typography>
               <div className={classes.winnerContainer}>
-                {data.map((val, i) => {
-                  return (
-                    <Typography key={i} className={classes.winner}>
-                      {val}
-                    </Typography>
-                  );
-                })}
+                {data &&
+                  data.map((val, i) => {
+                    return (
+                      <Typography key={i} className={classes.winner}>
+                        {val}
+                      </Typography>
+                    );
+                  })}
               </div>
             </div>
           </div>
