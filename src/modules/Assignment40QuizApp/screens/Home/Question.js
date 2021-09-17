@@ -68,26 +68,26 @@ export const Question = () => {
   var selectedQuestion = data.results[id - 1];
   var optionArray = [];
 
-  if (id % 4 == 0) {
+  if (id % 4 === 0) {
     optionArray = [
       selectedQuestion.correct_answer,
       ...selectedQuestion.incorrect_answers,
     ];
-  } else if (id % 4 == 1) {
+  } else if (id % 4 === 1) {
     optionArray = [
       selectedQuestion.incorrect_answers[1],
       selectedQuestion.correct_answer,
       selectedQuestion.incorrect_answers[0],
       selectedQuestion.incorrect_answers[2],
     ];
-  } else if (id % 4 == 2) {
+  } else if (id % 4 === 2) {
     optionArray = [
       selectedQuestion.incorrect_answers[1],
       selectedQuestion.incorrect_answers[0],
       selectedQuestion.incorrect_answers[2],
       selectedQuestion.correct_answer,
     ];
-  } else if (id % 4 == 3) {
+  } else if (id % 4 === 3) {
     optionArray = [
       selectedQuestion.incorrect_answers[1],
       selectedQuestion.incorrect_answers[0],
@@ -100,8 +100,6 @@ export const Question = () => {
     <div className={classes.questionContainer}>
       <ModalComponent handleModal={handleModal} open={open} score={score} />
       <Typography className={classes.question}>
-        {console.log("mein yha kyu aaya?")}
-        {console.log({ selectedQuestion, data })}
         {`${id}. ${selectedQuestion.question}`}
       </Typography>
       <div>
