@@ -10,7 +10,7 @@ const styles = makeStyles({
     height: "100vh",
     overflow: "auto",
     padding: "100px 60px 50px",
-    color:"#333"
+    color: "#333",
   },
 });
 
@@ -21,7 +21,6 @@ export const Mainbar = () => {
     <div className={classes.mainBarContainer}>
       <Navbar />
       <Switch>
-      
         {/* <Route exact path="/breedlist" component={BreedList} />
         <Route exact path="/yourdog" component={SubmitYourDog} /> */}
       </Switch>

@@ -58,6 +58,7 @@ export const ListallBreeds = () => {
         <SyntaxHighlighter className={classes.code} language="json" style={coy}>
           {isLoading ? "" : JSON.stringify(data, null, 2)}
         </SyntaxHighlighter>
+        {console.log(typeof data)}
       </div>
     </div>
   );

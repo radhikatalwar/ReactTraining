@@ -72,6 +72,10 @@ export const LuckyDrawGenerator = () => {
   const handleAnnouncement = () => {
     if (values.minId > values.maxId) {
       alert("Please provide Valid Range");
+      return;
+    } else if (values.maxId - values.minId < values.count) {
+      alert("Count should be less than the difference of range");
+      return;
     }
 
     while (randomValues.length < values.count) {
