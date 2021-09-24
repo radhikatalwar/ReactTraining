@@ -45,9 +45,7 @@ export const Main = () => {
 
   const handleSubmit = () => {
     var DocRef = db.collection("Test4").doc("sample1");
-    // DocRef.set({ style: "hello", main: ["main1", "main2"], sub: "subhello" });
     DocRef.set(obj);
-    console.log(obj);
   };
 
   return (
