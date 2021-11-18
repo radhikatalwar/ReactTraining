@@ -9,11 +9,19 @@ import {
   REMOVE_ACADEMIC_HISTORY,
   ADD_ACADEMIC_HISTORY,
   HANDLE_DOWNLOAD,
+  HANDLE_DRAWER,
 } from "../utils/actionNames";
 
 export const HandleChange = (payload) => {
   return {
     type: HANDLE_CHANGE,
+    payload,
+  };
+};
+
+export const HandleDrawer = (payload) => {
+  return {
+    type: HANDLE_DRAWER,
     payload,
   };
 };

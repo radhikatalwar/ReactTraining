@@ -4,12 +4,15 @@ import { Heading } from "./Heading";
 import { Navbar } from "./Navbar";
 import { ResumeContainer } from "./ResumeContainer";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   mainContainer: {
     width: "100%",
-    paddingLeft:"23%",
+    paddingLeft: "23%",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "0px",
+    },
   },
-});
+}));
 
 export const MainScreen = ({ handleDrawer }) => {
   const classes = styles();

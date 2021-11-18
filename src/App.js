@@ -6,6 +6,7 @@ import { store } from "./modules/Assignment43ResumeBuilder/store/store";
 // import { Assignment42FirebaseObjectStorage } from "./modules/Assignment42FirebaseObjectStorage";
 // import { Test } from "./modules/Test";
 import { Assignment43ResumeBuilder } from "./modules/Assignment43ResumeBuilder";
+import { TodoBetter } from "./modules/Assignment27TodoBetter";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
     <Provider store={store}>
       <Assignment43ResumeBuilder />
     </Provider>
+    // <TodoBetter />
   );
 };
 

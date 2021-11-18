@@ -1,4 +1,4 @@
-import { makeStyles, Paper, Divider, Fab } from "@material-ui/core";
+import { makeStyles, Paper, Fab } from "@material-ui/core";
 import React from "react";
 import CloudDownload from "@material-ui/icons/CloudDownload";
 import { Name } from "./InnerParts/Name";

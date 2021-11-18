@@ -9,6 +9,7 @@ import {
   REMOVE_ACADEMIC_HISTORY,
   ADD_ACADEMIC_HISTORY,
   HANDLE_DOWNLOAD,
+  HANDLE_DRAWER,
 } from "../utils/actionNames";
 import uuid from "uuid/dist/v4";
 
@@ -43,8 +44,7 @@ const infoValues = {
   mobile: "9876543210",
   email: "abcd@gmail.com",
   address: "Your House-No., <br> Your Colony, <br> Your District,Your State",
-  skills:
-    "-> React.js <br> -> Java  <br> -> Data & Structures <br> -> MySQL <br><br>  Write All your Skills!",
+  skills: "-> React.js <br> -> Java  <br> -> Data & Structures <br> -> MySQL",
   language:
     "-> English <br> -> Punjabi  <br> -> Hindi <br> -> German <br><br> Write All Languages You Know!",
   hobbies:
@@ -69,6 +69,7 @@ const initialState = {
     { ...initialAcademicHistory, id: uuid() },
     { ...initialAcademicHistory, id: uuid() },
   ],
+  drawer: true,
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -131,6 +132,12 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         history: [...state.history, { ...initialAcademicHistory, id: uuid() }],
+      };
+
+    case HANDLE_DRAWER:
+      return {
+        ...state,
+        drawer: action.payload,
       };
 
     case HANDLE_ACADEMIC_HISTORY:

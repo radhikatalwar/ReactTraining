@@ -16,7 +16,7 @@ import AppsOutlined from "@material-ui/icons/AppsOutlined";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
 import ViewHeadlineOutlinedIcon from "@material-ui/icons/ViewHeadlineOutlined";
 
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
@@ -56,6 +56,9 @@ const styles = makeStyles({
   },
   search: {
     position: "relative",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   input: {
     margin: "0 0 0 15px",
@@ -76,7 +79,7 @@ const styles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
-});
+}));
 
 const theme = createMuiTheme({
   overrides: {

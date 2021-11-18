@@ -8,13 +8,14 @@ import {
   Paper,
   List,
   Typography,
+  Drawer,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { ButtonComp } from "../../../Components/Button";
 import { ListItemComp } from "../../../Components/ListItem";
 import { ChromePicker, SwatchesPicker } from "react-color";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import { changeColor } from "../../../reduxComponents/action";
+import { changeColor, HandleDrawer } from "../../../reduxComponents/action";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -107,11 +108,11 @@ export const Sidebar = ({ handleSidebar }) => {
             />
             <Typography className={classes.logoHeading}>{"Minia"}</Typography>
           </div>
-          <Close
+          {/* <Close
             onClick={() => {
               handleSidebar();
             }}
-          />
+          /> */}
         </div>
         <Typography className={classes.subheading}>
           {"You can add or remove by clicking the particular section!"}
