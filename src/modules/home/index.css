@@ -1,0 +1,34 @@
+.homeContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: lightgray;
+}
+.itemContainer{
+  width: 200px;
+  height: 200px;
+  padding:10px;
+  border:1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:10px;
+  flex-direction: row;
+}
+.itemContainer h3{
+  font-size: 22px;
+  font-weight: bold;
+}
+.itemContainer button{
+  width: auto;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px;
+}
+.redClrText{
+  color:red !important;
+}

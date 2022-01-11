@@ -1,0 +1,6 @@
+export const FETCH_REQUEST = "FETCH_REQUEST";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAILURE = "FETCH_FAILURE";
+export const TRACK_ANSWERS = "TRACK_ANSWERS";
+export const SET_SCORE = "SET_SCORE";
+export const CLEAR_ANSWERS = "CLEAR_ANSWERS";

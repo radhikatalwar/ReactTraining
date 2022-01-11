@@ -1,0 +1,167 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --gray:#d8dde2;
+  --light-gray :#eef3f7;
+  --purple:#534dc0;
+  --blue:#1a15b1;
+
+}
+.homeContainer {
+  width: 85vw;
+  height: max-content;
+  background-color: var(--gray);
+  margin: 20px;
+  padding: 50px 67px;
+  border-radius: 10px;
+}
+.mainContainer {
+  background-color: white;
+  display: flex;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 84px 58px -34px rgba(131, 128, 128, 0.57);
+}
+.leftContainer {
+  color: white;
+  background-color: var(--purple);
+  width: 25%;
+  padding: 34px;
+  border-radius: 10px;
+  height: fit-content;
+}
+.saveYourMoney {
+  font-size: 25px;
+  width: 80%;
+}
+.leftImage {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+.rightContainer {
+  margin: 20px;
+  padding: 10px;
+  width: 75%;
+}
+.rightUpperContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.startNow {
+  width: 7em;
+  font-size: 25px;
+}
+.corporate {
+  text-align: right;
+  font-weight: 500;
+}
+.corporate a,
+.corporate span {
+  font-size: 13px;
+}
+.corporate a {
+  color: darkblue;
+  text-decoration: none;
+}
+.rightUpperContainer p {
+  justify-self: flex-end;
+}
+
+.rightBottomContainer {
+  display: flex;
+}
+.horLine{
+  border: 1px solid var(--blue);
+  width: 20px;
+}
+hr{
+  width: 20px;
+}
+.listDetails h5 {
+  font-size: 13px;
+  padding: 12px 10px;
+}
+.listDetails li {
+  font-size: 13px;
+  padding: 7px;
+  list-style-type: none;
+}
+#tickBlue{
+  padding: 10px;
+  color: var(--blue);
+}
+#tickWhite{
+  padding: 10px;
+  color: white;
+}
+.lite {
+  background-color: var(--light-gray);
+  width: 50%;
+  border-radius: 10px;
+  padding: 20px 17px;
+  margin: 20px 10px 0 0;
+}
+.liteTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.liteTop span {
+  color: gray;
+  font-size: 11px;
+}
+.cost {
+  text-align: right;
+}
+.pro {
+  background-color: var(--blue);
+  width: 50%;
+  border-radius: 10px;
+  color: white;
+  margin: 20px 0 0 10px;
+  padding: 20px 17px;
+}
+.proTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.proTop span {
+  font-size: 11px;
+}
+.startButton {
+  text-align: center;
+  margin-top: 25px;
+}
+.startButton p {
+  font-size: 11px;
+}
+button {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 15px;
+  margin: 10px;
+}
+#buttonLite {
+  background-color: var(--blue);
+  color: white;
+}
+#buttonPro {
+  background-color: white;
+  color: black;
+}
+.small {
+  font-size: 13px;
+}
+.bold {
+  font-weight: bold;
+}

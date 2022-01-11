@@ -1,0 +1,560 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --dark-lime-green: #86c306;
+  --blue-grey: #637696;
+  --ice-blue: #f6fcff;
+  --black-5: rgba(0, 0, 0, 0.05);
+  --light-blue: #009cde;
+  --blue: #dcf1fa;
+}
+.mainContainer {
+  max-width: 100vw;
+  background-image: linear-gradient(to bottom, var(--ice-blue), #ffffff 96%);
+}
+.wrapperClass {
+  margin: 0 auto;
+  width: 1190px;
+}
+header {
+  padding: 19px 163px;
+  display: flex;
+  justify-content: space-between;
+}
+header img {
+  width: 44px;
+}
+.logo {
+  display: flex;
+}
+.logo h2 {
+  margin: 0px 0 5px 0px;
+  font-family: "Saira", sans-serif;
+  font-size: 37px;
+  font-weight: 600;
+}
+.buttonBox {
+  display: flex;
+}
+.buttonBox button {
+  padding: 0px 27px;
+  font-size: 13px;
+  margin: 9px;
+  border-radius: 26px;
+  font-family: "Rubik", sans-serif;
+  outline: none;
+  cursor: pointer;
+  height: 39px;
+  color: var(--light-blue);
+}
+.sections ul {
+  margin-top: 16px;
+}
+.sections ul li {
+  display: inline-block;
+}
+.sections a {
+  text-decoration: none;
+  color: var(--blue-grey);
+  font-size: 11px;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.buttonBox #login {
+  background-color: white;
+  border: 0.5 px solid var(--blue);
+  box-shadow: 0 0 8px 3px var(--blue);
+}
+.buttonBox #signup {
+  background-color: var(--blue);
+  border: 0.5 px solid var(--blue);
+}
+.dogecoinOnlineContainer {
+  display: flex;
+  margin-bottom: 59px;
+}
+.dogecoinOnlineLeft {
+  width: 38%;
+  padding: 44px 0 40px 167px;
+}
+.dogecoinOnlineLeft p,
+h1 {
+  padding-bottom: 20px;
+}
+.dogecoinOnlineLeft h1 {
+  font-size: 35px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+}
+.dogecoinOnlineLeft #para1 {
+  font-size: 28px;
+  font-family: "Rubik", sans-serif;
+}
+.dogecoinOnlineRight {
+  margin: 20px 67px;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 3px 21px 0 rgb(0 0 0 / 4%);
+  background-color: white;
+  text-align: center;
+}
+.dogecoinOnlineRight h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+.cost1 {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  width: 211px;
+}
+.verticalLine {
+  height: 49px;
+  border: 0.5px solid lightgrey;
+  margin: 10px 0;
+}
+.cost1 p {
+  padding: 10px 13px;
+  font-size: 30px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 200;
+}
+.cost img {
+  height: 25px;
+  width: 25px;
+}
+.cost select {
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 25px;
+  padding: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 200;
+}
+.horLine {
+  background-color: #dbdbdb;
+  border: none;
+  height: 1px;
+}
+.formButton {
+  display: flex;
+  padding: 20px 0;
+  border-radius: 37px;
+  justify-content: center;
+}
+.dogecoinOnlineRight button {
+  padding: 0px 49px;
+  font-size: 13px;
+  font-family: "Rubik", sans-serif;
+  outline: none;
+  cursor: pointer;
+  height: 39px;
+  color: var(--light-blue);
+  background-color: white;
+  border: 1px solid rgb(189, 189, 189);
+}
+.dogecoinOnlineRight #buy {
+  border: 0.5px solid var(--light-blue);
+  border-bottom-left-radius:10px;
+  border-top-left-radius:10px;
+}
+.dogecoinOnlineRight #sell {
+  color: black;
+  border-bottom-right-radius:10px;
+  border-top-right-radius:10px;
+}
+.cost {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+.card {
+  /* margin: 580px 227.3px 124.8px 237px; */
+  padding: 20.3px 31px 26.9px 29.6px;
+  border-radius: 32.5px;
+  box-shadow: 0 3px 16px 0 var(--black-5);
+  border: solid 1px rgba(99, 118, 150, 0.2);
+  color: var(--blue-grey);
+}
+.creditCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 77px 0;
+  position: relative;
+  height: 250px;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  margin: 0 6px 0 0;
+  background-color: var(--blue-grey);
+  border-radius: 50%;
+}
+.dotsBox {
+  display: flex;
+  padding: 35px 0;
+  margin-right: 20px;
+}
+.allDots {
+  display: flex;
+}
+.allDots p {
+  padding: 28px 0;
+  color: var(--black-5);
+}
+.cardDetails {
+  display: flex;
+  justify-content: space-between;
+}
+.card1 {
+  width: 254px;
+  height: 152px;
+  background-color: #fff6f6;
+  position: absolute;
+  left: 138px;
+  top: 5px;
+}
+.card2 {
+  width: 267px;
+  height: 152px;
+  background-color: #f6fcff;
+  position: absolute;
+  top: 29px;
+  left: 388px;
+}
+
+.card3 {
+  width: 354.6px;
+  height: 147.4px;
+  padding: 37px 30px;
+  border-radius: 32.5px;
+  box-shadow: 0 3px 21px 0 var(--black-5);
+  border: solid 1px rgba(99, 118, 150, 0.2);
+  background-color: #ffffff;
+  position: absolute;
+  right: 136px;
+  bottom: -33px;
+}
+.card3 h1 {
+  font-size: 37px;
+  padding-bottom: 20px;
+  font-family: "Rubik", sans-serif;
+}
+.card3 p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #637696;
+  font-family: "Nunito Sans", sans-serif;
+}
+.buyAndSell {
+  text-align: center;
+  margin: 106px 0;
+}
+
+.buyAndSell h2 {
+  width: 417px;
+  height: 29px;
+  margin: 20px auto 12px;
+  font-size: 37px;
+  line-height: 1.25;
+  font-family: "Rubik", sans-serif;
+}
+.simpleSteps {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  line-height: 2.8;
+}
+.buyAndSellBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 16px;
+}
+.smallBox {
+  max-width: 23%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.smallBox img {
+  padding: 20px 0;
+  width: 60px;
+  height: 60px;
+}
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.details p {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 15px 0;
+}
+.smallBoxAbout {
+  font-weight: 500;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.8;
+  color: var(--blue-grey);
+  padding-top: 15px;
+  font-size: 15px;
+}
+.detailsIcon {
+  margin: 0px 15px;
+  padding: 12px 11px;
+  height: 18px;
+  width: 18px;
+}
+.detailsIconInner {
+  width: 1px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  font-family: "Rubik", sans-serif;
+}
+
+#commonButton {
+  border-radius: 50px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  height: 47px;
+}
+.whyXcoinsContainer,
+.whyXcoins,
+.sign,
+.whatisDogecoin,
+.dogecoinForMeContainer {
+  display: flex;
+  margin: 70px 0;
+}
+#image1 {
+  width: 518px;
+}
+.whyXcoinsRight,
+.dogecoinForMeRight {
+  padding: 0px 161px 0 56px;
+  display: flex;
+  flex-direction: column;
+}
+#heading1 {
+  padding-bottom: 20px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+}
+.contentHeading img {
+  width: 13px;
+}
+.contentHeading h3 {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+}
+#coinAbout {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #637696;
+  font-family: "Nunito Sans", sans-serif;
+}
+.contentHeading {
+  display: flex;
+}
+.sign {
+  margin: 20px 0;
+  padding: 28px 35px 27px 36px;
+  border-radius: 30px;
+  box-shadow: 0 3px 26px 0 rgb(0 0 0 / 8%);
+  align-items: center;
+  justify-content: center;
+}
+.sign h5 {
+  margin: 10px 45px 10px 0;
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+}
+.whatisDogecoin {
+  justify-content: center;
+  align-content: center;
+}
+.whatisDogecoinCenter {
+  width: 445px;
+  text-align: center;
+  padding: 32px 17px 0 18px;
+  box-shadow: 0 3px 21px 0 rgb(0 0 0 / 4%);
+  border: solid 1px rgba(99, 118, 150, 0.2);
+}
+.whatisDogecoinCenter h1 {
+  font-family: "Rubik", sans-serif;
+  line-height: 1.25;
+  margin: 0px 30px;
+  font-size: 29px;
+  letter-spacing: 1px;
+}
+.whatisDogecoinCenter p {
+  padding: 0 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--blue-grey);
+}
+.sideMain {
+  margin: 0 30px;
+  box-shadow: 0 3px 21px 0 rgb(0 0 0 / 4%);
+  border: solid 1px rgba(99, 118, 150, 0.2);
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  width: 150px;
+  height: 148px;
+}
+.sideContent {
+  display: flex;
+  position: absolute;
+  bottom: 45px;
+}
+.sideContent img {
+  width: 26px;
+}
+.sideContent p {
+  margin: 5px 0 5px 9px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+}
+.whereToSpend {
+  margin: 59px 0;
+  text-align: center;
+}
+.whereToSpend h2 {
+  margin: 26px 30px 20px;
+  font-family: "Rubik", sans-serif;
+  font-size: 29px;
+}
+.whereToSpend p {
+  width: 856px;
+  margin: 0 auto;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--blue-grey);
+}
+.whereToSpendImageBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.ImageBox p {
+  position: relative;
+  left: 5px;
+  width: 300px;
+  font-family: "Rubik", sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #000808;
+  font-weight: bold;
+}
+.ImageBox #blank {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+}
+.ImageBox #actualImage {
+  position: relative;
+  left: -5px;
+  bottom: 2px;
+  width: 220px;
+  height: 220px;
+}
+.dogecoinForMeRight {
+  justify-content: center;
+}
+.footer {
+  margin: 0 120px;
+}
+.footer img {
+  width: 100vw;
+}
+.footerTop {
+  display: flex;
+}
+.footerTop p {
+  color: rgb(160 160 160);
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+}
+.footerTopLeft {
+  width: 40%;
+}
+.footerTopRight {
+  width: 60%;
+  justify-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+}
+.logo img {
+  width: 48px;
+  height: 61px;
+}
+.logo {
+  display: flex;
+}
+.logo h2 {
+  margin: 0px 0 5px 0px;
+  font-family: "Saira", sans-serif;
+  font-size: 37px;
+  font-weight: 600;
+}
+.infoContainer {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 200;
+}
+.infoContainer ul {
+  list-style-type: none;
+}
+.infoContainer li {
+  padding: 10px;
+  color: rgb(160 160 160);
+  align-content: center;
+}
+.infoContainer h4 {
+  color: black;
+}
+.footerSections ul {
+  margin: 20px 0;
+}
+.footerSections ul li {
+  display: inline-block;
+}
+.footerSections a {
+  text-decoration: none;
+  color: rgb(160 160 160);
+  font-size: 15px;
+  padding: 10px 20px 10px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.footerBottom p {
+  color: #cecece;
+  font-size: 13px;
+  margin: 26px 0;
+}

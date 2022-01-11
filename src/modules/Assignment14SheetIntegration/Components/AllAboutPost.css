@@ -1,0 +1,35 @@
+.postHeading {
+  font-size: 25px;
+  margin: 38px 0 20px 0;
+}
+.AboutUser {
+  display: flex;
+  margin: 15px 0;
+}
+.AboutUser img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.AboutUser p {
+  margin: 0 10px;
+}
+.Image {
+  margin: 20px 0;
+}
+@media screen and (min-width: 600px) {
+  .postHeading {
+    font-size: 31px;
+    margin: 27px 0;
+  }
+  .AboutUser p {
+    font-size: 18px;
+  }
+  .Image {
+    margin: 20px auto;
+    width: 95%;
+  }
+  .content {
+    width: 94%;
+  }
+}

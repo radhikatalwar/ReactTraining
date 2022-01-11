@@ -1,0 +1,22 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+[mode="true"] {
+  --bg-color: #3f3f3f;
+  --text-color: #fff;
+}
+
+.mainContainer {
+  width: 100%;
+  font-family: Lato, "Noto Sans", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+@media screen and (min-width: 600px) {
+  .mainContainer {
+    width: 80%;
+    padding: 0 10%;
+  }
+}

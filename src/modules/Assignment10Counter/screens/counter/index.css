@@ -1,0 +1,18 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15% auto;
+  background-color: thistle;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+}
+button {
+  margin: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 130px;
+}
