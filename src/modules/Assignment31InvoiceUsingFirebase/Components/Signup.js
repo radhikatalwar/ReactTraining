@@ -108,8 +108,8 @@ export const Signup = () => {
   };
 
   return (
-    <Modal className={classes.modal} open={false} closeAfterTransition>
-      <Fade in={false}>
+    <Modal className={classes.modal} open={open} closeAfterTransition>
+      <Fade in={open}>
         <Paper className={classes.paper} elevation={4}>
           <div>
             <Button
